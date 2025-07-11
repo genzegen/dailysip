@@ -1,0 +1,24 @@
+.header-container {
+    width: 100vw;
+    height: 13vh;
+    border-bottom: 4px solid #A31621;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10rem;
+    box-sizing: border-box;
+}
+
+.left ul, .right ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    font-size: 1.2rem;
+}
+
