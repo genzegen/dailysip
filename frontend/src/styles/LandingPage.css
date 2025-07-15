@@ -31,7 +31,8 @@ h1 {
     justify-content: start;
     overflow-y: auto;
     overflow-x: hidden;
-
+    scroll-snap-type: y mandatory;
+    pointer-events: none;
 }
 
 .hero-intro, .latest-arrivals {
@@ -42,6 +43,8 @@ h1 {
     align-items: center;
     justify-content: center;
     text-align: center;
+    pointer-events: none;
+    scroll-snap-align: start;
 }
 
 .shop-now-button {
@@ -49,24 +52,69 @@ h1 {
     border: 2px solid #A31621;
     color: #2b2b2b;
     margin: 0.7rem;
+    pointer-events: all;
+}
+.shop-now-button:hover {
+    border: 2px solid #a8545b;
+    background-color: #A31621;
+    color: white;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.shop-now-button:active {
+    background-color: #A31621;
+    color: white;
+    transform: scale(0.95);
+    transition: transform 0.1s ease-in-out;
 }
 
 .hero-image {
-    width: 75%;
-    height: 90%;
+    width: 80%;
+    height: 70%;
+    max-height: 80vh;
     z-index: 0;
-    transition: transform 0.2s ease-in-out;
-    /* filter: brightness(1); */
+    transition: transform 0.3s ease-in-out;
     object-fit: cover;
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
-
+.latest-arrivals {
+    height: 100vh;
+    margin-top: 3rem;
+}
 .latest-products {
     width: 80vw;
-    height: 80vh;
+    height: 110vh;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.product-card {
+    width: 25vw;
+    height: 100%;
     border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.product-card.left {
+    transform: translateY(50px) translateX(-30px);
+}
+.product-card.right {
+    transform: translateY(50px) translateX(30px);
+}
+.product-card.center {
+    transform: translateY(-30px);
+}
+.product-card.animate {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
 }
 
 

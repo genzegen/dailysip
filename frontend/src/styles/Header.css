@@ -11,7 +11,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    transition: transform 0.45s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     z-index: 1000;
     background-color: #FCF7F8;
 }
