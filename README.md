@@ -35,22 +35,22 @@
 
 ## Getting Started
 
-- 1. **Clone the repository:**  
+1. **Clone the repository:**  
    ```bash
    git clone https://github.com/your-username/dailysip.git
    cd dailysip
-- 2. **Set up the backend:**
+2. **Set up the backend:**
   - Create a virtual environment and activate it.
   - Install Django and dependencies.
   - Run migrations and start the Django server.
 
-- 3. **Set up the frontend:**
+3. **Set up the frontend:**
   - Navigate to the frontend directory.
   - Install dependencies with npm install or yarn.
   - Start the React development server with npm start or yarn start.
 
-- 4. **Visit the app:**
-  -Open your browser at http://localhost:3000 to see DailySip in action.
+4. **Visit the app:**
+  - Open your browser at http://localhost:3000 to see DailySip in action.
 
 ---
 
