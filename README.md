@@ -40,14 +40,14 @@
    git clone https://github.com/your-username/dailysip.git
    cd dailysip
 2. **Set up the backend:**
-  -Create a virtual environment and activate it.
-  -Install Django and dependencies.
-  -Run migrations and start the Django server.
+  - Create a virtual environment and activate it.
+  - Install Django and dependencies.
+  - Run migrations and start the Django server.
 
 3. **Set up the frontend:**
-  -Navigate to the frontend directory.
-  -Install dependencies with npm install or yarn.
-  -Start the React development server with npm start or yarn start.
+  - Navigate to the frontend directory.
+  - Install dependencies with npm install or yarn.
+  - Start the React development server with npm start or yarn start.
 
 4. **Visit the app:**
   -Open your browser at http://localhost:3000 to see DailySip in action.
@@ -55,8 +55,8 @@
 ---
 
 ## Future Improvements
--Add product listing pages with filters and categories.
--Implement shopping cart and checkout process.
--Add user authentication and profile management.
--Integrate payment gateways.
--Improve product data fetching and state management with Redux or Context API.
+- Add product listing pages with filters and categories.
+- Implement shopping cart and checkout process.
+- Add user authentication and profile management.
+- Integrate payment gateways.
+- Improve product data fetching and state management with Redux or Context API.
