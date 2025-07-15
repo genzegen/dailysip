@@ -6,57 +6,71 @@
 
 ## Features
 
-- **Landing Page with Hero Section:** Engaging hero image with smooth scaling animation on scroll.
-- **Hottest Products Showcase:** Highlights best-selling products with animated entrance effects triggered on scroll.
-- **Responsive Design:** Mobile-friendly layout with accessible navigation.
-- **Reusable Components:** Modular React components for easy maintenance and extension.
-- **Dynamic Scroll-Based Animations:** Utilizes Intersection Observer and scroll events to animate content visibility.
-- **Footer with Quick Links:** Provides users with shop categories and company info.
-- **Backend Powered by Django:** Robust API layer for handling product data and future extensibility.
-- **Easy to Extend:** Foundation ready for adding cart, checkout, authentication, and payment integrations.
+* **Responsive Design:** Mobile-friendly layout with accessible navigation.
+* **Reusable Components:** Modular React components for easy maintenance and extension.
+* **Dynamic Scroll-Based Animations:** Utilizes Intersection Observer and scroll events to animate content visibility.
+* **Backend Powered by Django:** Robust API layer for handling product data and future extensibility.
+* **Easy to Extend:** Foundation ready for adding cart, checkout, authentication, and payment integrations.
 
 ---
 
 ## Tech Stack
 
-- **Frontend:**  
-  - React.js (Functional Components & Hooks)   
-  - Axios (API calls)  
+### Frontend
 
-- **Backend:**  
-  - Django  
-  - Django REST Framework (API)  
+* React.js (Functional Components & Hooks)
+* Axios (API calls)
 
-- **Development Tools:**  
-  - Visual Studio Code  
-  - Git & GitHub for version control  
+### Backend
+
+* Django
+* Django REST Framework (API)
+
+### Development Tools
+
+* Visual Studio Code
+* Git & GitHub for version control
 
 ---
 
 ## Getting Started
 
-1. **Clone the repository:**  
-   ```bash
-   git clone https://github.com/your-username/dailysip.git
-   cd dailysip
-2. **Set up the backend:**
-  - Create a virtual environment and activate it.
-  - Install Django and dependencies.
-  - Run migrations and start the Django server.
+### 1. Clone the Repository
 
-3. **Set up the frontend:**
-  - Navigate to the frontend directory.
-  - Install dependencies with npm install or yarn.
-  - Start the React development server with npm start or yarn start.
+```bash
+git clone https://github.com/your-username/dailysip.git
+cd dailysip
+```
 
-4. **Visit the app:**
-  - Open your browser at http://localhost:3000 to see DailySip in action.
+### 2. Set Up the Backend
+
+```bash
+cd backend
+python -m venv env
+source env/bin/activate  # On Windows: env\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+### 3. Set Up the Frontend
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+### 4. Visit the App
+
+Go to [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
 ## Future Improvements
-- Add product listing pages with filters and categories.
-- Implement shopping cart and checkout process.
-- Add user authentication and profile management.
-- Integrate payment gateways.
-- Improve product data fetching and state management with Redux or Context API.
+
+* Add product listing pages with filters and categories
+* Implement shopping cart and checkout process
+* Add user authentication and profile management
+* Integrate payment gateways
+* Improve product data fetching and state management with Redux or Context API
