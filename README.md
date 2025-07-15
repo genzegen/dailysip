@@ -1,9 +1,64 @@
-**DAILY SIPS**
+DailySip
+DailySip is a clean and simple e-commerce platform focused on premium coffee, tea, and accessories. It features a smooth, user-friendly interface with engaging animations to highlight featured products.
 
-dailySip is a e-commerce website which is built using React for the frontend and Django for the backend.
+Features
+Landing Page with Hero Section: Engaging hero image with smooth scaling animation on scroll.
 
-**Features**
-1. View all available packages of tea and coffee products
-2. Add a specific to cart or buy a subscription which will schedule a delivery every week or every other week.
-3. Checkout the cart using online payment gateways.
-4. Generate invoices for your purchases.
+Hottest Products Showcase: Highlights best-selling products with animated entrance effects triggered on scroll.
+
+Responsive Design: Mobile-friendly layout with accessible navigation.
+
+Reusable Components: Modular React components for easy maintenance and extension.
+
+Dynamic Scroll-Based Animations: Utilizes Intersection Observer and scroll events to animate content visibility.
+
+Footer with Quick Links: Provides users with shop categories and company info.
+
+Backend Powered by Django: Robust API layer for handling product data and future extensibility.
+
+Easy to Extend: Foundation ready for adding cart, checkout, authentication, and payment integrations.
+
+Tech Stack
+Frontend:
+
+React.js (Functional Components & Hooks)
+
+CSS3 (Flexbox, Transitions, Animations)
+
+Axios (API calls)
+
+Backend:
+
+Django
+
+Django REST Framework (API)
+
+Development Tools:
+
+Visual Studio Code
+
+Git & GitHub for version control
+
+Getting Started
+Clone the repository.
+
+Set up your Django backend environment and run migrations.
+
+Install frontend dependencies and start the React development server.
+
+Visit http://localhost:3000 to see the landing page in action.
+
+Future Improvements
+Add product listing pages with filters and categories.
+
+Implement shopping cart and checkout process.
+
+Add user authentication and profile management.
+
+Integrate payment gateways.
+
+Improve product data fetching and state management with Redux or Context API.
+
+License
+This project is open source and available under the MIT License.
+
