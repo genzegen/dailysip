@@ -1,9 +1,9 @@
 .footer {
-    width: 100%;
+    width: 100vw;
     margin-top: 5vh;
+    margin-bottom: 3vh;
     background-color: #FCF7F8;
     color: #2b2b2b;
-    /* padding: 3rem 2rem 2rem 2rem; */
     font-family: 'Poppins', sans-serif;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
     pointer-events: all;
@@ -14,7 +14,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 2rem;
-    margin: 0 auto;
+    margin: 2vh 5vw;
 }
 
 .footer-section {

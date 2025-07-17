@@ -36,7 +36,7 @@ export default function LandingPage() {
             ([entry]) => {
                 setShowProducts(entry.isIntersecting);
             },
-            { threshold: 0.5 }
+            { threshold: 0.6 }
         );
 
         const target = latestRef.current;
@@ -63,7 +63,7 @@ export default function LandingPage() {
             <div className='latest-arrivals' ref={latestRef}>
                 <h1 style={{ fontSize: '2rem', marginTop: '0' }}>
                     Our Hottest Products</h1>
-                <p style={{ marginTop: '0.5rem', marginBottom: '2.5rem', fontSize: '1rem' }}>
+                <p style={{ marginTop: '0.5rem', marginBottom: '1.6rem', fontSize: '1rem' }}>
                     Signature selections that define our taste and quality.</p>
                 <div className='latest-products'>
                     <div className={`product-card left ${showProducts ? 'animate' : ''}`}>
