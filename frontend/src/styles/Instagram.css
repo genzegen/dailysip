@@ -1,0 +1,68 @@
+.instagram-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 5vh;
+}
+
+.instagram-post {
+  width: 300px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.instagram-post-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.instagram-post-header img.profile {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.instagram-post-header span.username {
+  font-weight: bold;
+  color: #333;
+  flex-grow: 1;
+  font-size: 0.95rem;
+}
+
+.instagram-post-header span.menu {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.instagram-post-image img {
+  width: 100%;
+  display: block;
+}
+
+.instagram-post-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.instagram-post-caption {
+  padding: 0 0.75rem 0.75rem;
+  font-size: 0.9rem;
+  text-align: left;
+  color: #333;
+}
+
+.instagram-post-caption .caption-username {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
