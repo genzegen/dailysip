@@ -1,9 +1,76 @@
-**DAILY SIPS**
+# DailySip
 
-dailySip is a e-commerce website which is built using React for the frontend and Django for the backend.
+**DailySip** is a clean and simple e-commerce platform focused on premium coffee, tea, and accessories. It features a smooth, user-friendly interface with engaging animations to highlight featured products.
 
-**Features**
-1. View all available packages of tea and coffee products
-2. Add a specific to cart or buy a subscription which will schedule a delivery every week or every other week.
-3. Checkout the cart using online payment gateways.
-4. Generate invoices for your purchases.
+---
+
+## Features
+
+* **Responsive Design:** Mobile-friendly layout with accessible navigation.
+* **Reusable Components:** Modular React components for easy maintenance and extension.
+* **Dynamic Scroll-Based Animations:** Utilizes Intersection Observer and scroll events to animate content visibility.
+* **Backend Powered by Django:** Robust API layer for handling product data and future extensibility.
+* **Easy to Extend:** Foundation ready for adding cart, checkout, authentication, and payment integrations.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* React.js (Functional Components & Hooks)
+* Axios (API calls)
+
+### Backend
+
+* Django
+* Django REST Framework (API)
+
+### Development Tools
+
+* Visual Studio Code
+* Git & GitHub for version control
+
+---
+
+## Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/dailysip.git
+cd dailysip
+```
+
+### 2. Set Up the Backend
+
+```bash
+cd backend
+python -m venv env
+source env/bin/activate  # On Windows: env\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+### 3. Set Up the Frontend
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+### 4. Visit the App
+
+Go to [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Future Improvements
+
+* Add product listing pages with filters and categories
+* Implement shopping cart and checkout process
+* Add user authentication and profile management
+* Integrate payment gateways
+* Improve product data fetching and state management with Redux or Context API
