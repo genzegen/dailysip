@@ -8,7 +8,7 @@ export default function GetStarted() {
 
   return (
     <div className="get-started">
-      <div className="login-register">
+      <div className="login-register fade-up" key={isLogin ? 'login' : 'register'}>
         <h1>dailySips</h1>
         {isLogin ? (
           <Login switchToRegister={() => setIsLogin(false)} />

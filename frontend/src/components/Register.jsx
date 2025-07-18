@@ -11,7 +11,7 @@ export default function Register({ switchToLogin}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted:', form);
+        console.log('Register submitted:', form);
     }
 
     return (
