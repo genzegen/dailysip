@@ -11,13 +11,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/header" element={<Header />} />
-        <Route path="/footer" element={<Footer />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="/instagram" element={<Instagram />} />
         <Route path="/getstarted" element={<GetStarted />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );

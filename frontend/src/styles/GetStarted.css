@@ -31,6 +31,8 @@ html, body {
 .login-register {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-self: center;
     width: 45vw;
     height: 50vh;
     background-color: #A31621;
@@ -42,5 +44,6 @@ html, body {
     color: #FCF7F8;
     text-align: center;
     font-size: 1.5rem;
+    margin-top: 5vh;
 }
 
