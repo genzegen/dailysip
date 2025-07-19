@@ -71,6 +71,6 @@ Go to [http://localhost:3000](http://localhost:3000) in your browser.
 
 * Add product listing pages with filters and categories
 * Implement shopping cart and checkout process
-* Add user authentication and profile management
 * Integrate payment gateways
+* Add data analytics
 * Improve product data fetching and state management with Redux or Context API
