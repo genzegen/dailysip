@@ -1,10 +1,12 @@
 import React from "react";
 import '../styles/Header.css';
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
   const [show, setShow] = useState(true);
   const lastScrollY = useRef(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +39,7 @@ export default function Header() {
         <div className="right">
             <ul>
                 <li>Cart</li>
-                <li>Login</li>
+                <li onClick={() => navigate('/getstarted')} style={{ pointerEvents: 'all' }}>Login</li>
             </ul>
         </div>
     </div>

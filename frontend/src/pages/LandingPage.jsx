@@ -5,6 +5,7 @@ import '../styles/LandingPage.css';
 import Header from '../components/Header';
 import heroImage from '../assets/coffeehero.jpg';
 import Footer from '../components/Footer';
+import Instagram from '../components/Instagram';
 
 export default function LandingPage() {
     const [scrollY, setScrollY] = useState(0);
@@ -60,7 +61,7 @@ export default function LandingPage() {
                 <button className='shop-now-button'>Shop Now</button>
                 <img src={heroImage} alt="Coffee Hero" className='hero-image' style={{ transform: `scale(${imageScale})` }} />
             </div>
-            <div className='latest-arrivals' ref={latestRef}>
+            <div className='latest-arrivals' ref={latestRef} style={{ marginBottom: '5vh' }}>
                 <h1 style={{ fontSize: '2rem', marginTop: '0' }}>
                     Our Hottest Products</h1>
                 <p style={{ marginTop: '0.5rem', marginBottom: '1.6rem', fontSize: '1rem' }}>
@@ -86,6 +87,7 @@ export default function LandingPage() {
                     </div>
                 </div>
             </div>
+            <Instagram />
             <Footer />
         </div>
     );
