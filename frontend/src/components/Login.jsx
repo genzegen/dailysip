@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import '../styles/Login.css';
 import cappu from '../assets/cappu.png';
+import API from '../api/axios'
+// import { useNavigate } from 'react-router-dom'
+
 
 export default function Login({ switchToRegister }) {
     const [form, setForm] = useState({ username: '', password: '' });
+    const [error, setError] = useState('')
+    // const navigate = useNavigate();
+
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Login submitted:', form);
+        try {
+            const res = await API.post('accounts/login/', {
+                username: form.username,
+                password: form.password
+            });
+            alert("Login successful", res.data)
+            //navaigate here
+        } catch (err) {
+            setError('Invalid Credentials')
+            console.log(err)
+        }
     }
 
     return (
@@ -33,6 +49,7 @@ export default function Login({ switchToRegister }) {
                 />
                 <p>Don't have an account? <button type='button' className='switch-button' onClick={switchToRegister}>Register Now</button></p>
                 <button type="submit">Login</button>
+                {error && <p style={{ color: 'yellow', fontSize: '0.8rem' }}>{error}</p>}
             </form>
             <div className='cappu-container'>
                 <img src={cappu} alt="Cappucino" className='cappu-img' />

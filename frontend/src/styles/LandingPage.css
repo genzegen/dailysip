@@ -48,6 +48,7 @@ h1 {
 }
 
 .shop-now-button {
+    width: 10vw;
     background-color: transparent;
     border: 2px solid #A31621;
     color: #2b2b2b;
