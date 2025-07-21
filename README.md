@@ -38,7 +38,7 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/dailysip.git
+git clone https://github.com/genzegen/dailysip.git
 cd dailysip
 ```
 
