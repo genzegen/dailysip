@@ -6,6 +6,15 @@ export default function Header() {
   const [show, setShow] = useState(true);
   const lastScrollY = useRef(0);
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if(storedUser) {
+      setUser(JSON.parse(storedUser));
+      console.log(storedUser);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,8 +46,14 @@ export default function Header() {
         </div>
         <div className="right">
             <ul>
-                <li><i className='fab cart'></i></li>
-                <li onClick={() => navigate('/getstarted')} style={{ pointerEvents: 'all', cursor: 'pointer' }}>Login</li>
+                <li><i className='fa fa-shopping-cart'></i></li>
+                {
+                  user ? (
+                    <li style={{ color: '#2b2b2b' }}>{user.username}</li>
+                  ) : (
+                    <li onClick={() => navigate('/getStarted')} style={{ cursor: 'pointer' }}>Login</li>
+                  )
+                }
             </ul>
         </div>
     </div>

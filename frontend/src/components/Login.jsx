@@ -22,6 +22,12 @@ export default function Login({ switchToRegister }) {
                 username: form.username,
                 password: form.password
             });
+
+            localStorage.setItem('user', JSON.stringify({
+                username: res.data.username,
+                email: res.data.email
+            }))
+
             console.log("Login successful", res.data)
             navigate('/home')
         } catch (err) {
