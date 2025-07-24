@@ -56,16 +56,18 @@ h1 {
     pointer-events: all;
 }
 .shop-now-button:hover {
+    width: 10vw;
     border: 2px solid #a8545b;
     background-color: #A31621;
     color: white;
+    margin: 0.7rem;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .shop-now-button:active {
+    width: 10vw;
+    margin: 0.7rem;
     background-color: #A31621;
     color: white;
-    transform: scale(0.95);
-    transition: transform 0.1s ease-in-out;
 }
 
 .hero-image {
