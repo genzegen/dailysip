@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import '../styles/Login.css';
 import cappu from '../assets/cappu.png';
 import API from '../api/axios'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Login({ switchToRegister }) {
     const [form, setForm] = useState({ username: '', password: '' });
     const [error, setError] = useState('')
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
 
     const handleChange = (e) => {
@@ -22,8 +22,8 @@ export default function Login({ switchToRegister }) {
                 username: form.username,
                 password: form.password
             });
-            alert("Login successful", res.data)
-            //navaigate here
+            console.log("Login successful", res.data)
+            navigate('/home')
         } catch (err) {
             setError('Invalid Credentials')
             console.log(err)

@@ -1,4 +1,3 @@
-import React from "react";
 import '../styles/Header.css';
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -38,8 +37,8 @@ export default function Header() {
         </div>
         <div className="right">
             <ul>
-                <li>Cart</li>
-                <li onClick={() => navigate('/getstarted')} style={{ pointerEvents: 'all' }}>Login</li>
+                <li><i className='fab cart'></i></li>
+                <li onClick={() => navigate('/getstarted')} style={{ pointerEvents: 'all', cursor: 'pointer' }}>Login</li>
             </ul>
         </div>
     </div>
