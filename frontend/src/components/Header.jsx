@@ -7,12 +7,13 @@ export default function Header() {
   const lastScrollY = useRef(0);
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [showLogout, setShowLogout] = useState(false);
+  const popupRef = useRef();
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if(storedUser) {
       setUser(JSON.parse(storedUser));
-      console.log(storedUser);
     }
   }, []);
 
@@ -21,18 +22,39 @@ export default function Header() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY - lastScrollY.current > 2) {
-        setShow(false); // Hide on scroll down
+        setShow(false);
       } else if (lastScrollY.current - currentScrollY > 2) {
-        setShow(true); // Show on scroll up
+        setShow(true);
       }
 
       lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if(popupRef.current && !popupRef.current.contains(e.target)) {
+        setShowLogout(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    setShowLogout(false);
+    navigate('/');
+  }
+
+  const handleLoginClick = () => {
+    console.log("Login clicked - navigating to /getstarted");
+    navigate('/getstarted');
+  }
 
   return (
     <div className={`header-container ${show ? 'show' : 'hide'}`}>
@@ -47,11 +69,25 @@ export default function Header() {
         <div className="right">
             <ul>
                 <li><i className='fa fa-shopping-cart'></i></li>
-                {
-                  user ? (
-                    <li style={{ color: '#2b2b2b' }}>{user.username}</li>
+                {user ? (
+                    <li 
+                      onClick={() => setShowLogout(prev => !prev)} 
+                      style={{ color: '#2b2b2b', cursor: 'pointer', position: 'relative' }}
+                    >
+                      {user.username}
+                      {showLogout && (
+                        <div className='logout-popup' ref={popupRef}>
+                          <button onClick={handleLogout} className='logout-button'>Logout</button>
+                        </div>
+                      )}
+                    </li>
                   ) : (
-                    <li onClick={() => navigate('/getStarted')} style={{ cursor: 'pointer' }}>Login</li>
+                    <li 
+                      onClick={handleLoginClick}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      Login
+                    </li>
                   )
                 }
             </ul>
