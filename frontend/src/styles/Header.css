@@ -12,7 +12,7 @@
     top: 0;
     left: 0;
     transition: transform 0.5s ease-in-out;
-    z-index: 1000;
+    z-index: 10;
     background-color: #FCF7F8;
 }
 .header-container.show {
@@ -30,7 +30,66 @@
     padding: 0;
     align-items: center;
     justify-content: space-evenly;
-    gap: 2rem;
+    gap: 2.5rem;
     font-size: 1.2rem;
+    z-index: 11;
+}
+.right ul {
+    gap: 3.2rem;
+}
+.search-bar-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+.search-bar {
+    all: unset;
+    width: 250px;
+    padding: 5px;
+    line-height: 1.3rem;
+    font-size: 1.1rem;
+    color: #2b2b2b;
+    border-bottom: 1px solid #2b2b2b8a;
+    border-bottom-right-radius: 8px;
+}
+li {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.logout-popup {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 100%;
+    right: 10px;
+    padding: 10px;
+    background-color: #FCF7F8;
+    border: 1px solid #A31621;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 13;
+}
+.logout-button {
+    width: 5vw;
+    background-color: #A31621;
+    color: #FCF7F8;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.logout-button:hover {
+    background-color: #c41c2a;
+}
+.logout-button:active {
+    width: 5vw;
+    background-color: #A31621;
+    color: #FCF7F8;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
