@@ -37,6 +37,22 @@
 .right ul {
     gap: 3.2rem;
 }
+.search-bar-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+.search-bar {
+    all: unset;
+    width: 250px;
+    padding: 5px;
+    line-height: 1.3rem;
+    font-size: 1.1rem;
+    color: #2b2b2b;
+    border-bottom: 1px solid #2b2b2b8a;
+    border-bottom-right-radius: 8px;
+}
 li {
     pointer-events: all;
     cursor: pointer;

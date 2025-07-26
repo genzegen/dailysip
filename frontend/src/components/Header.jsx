@@ -63,7 +63,10 @@ export default function Header() {
                 <li style={{ fontWeight: 'bold', fontStyle: 'italic', color: '#A31621' }}>dailySips</li>
                 <li>Shop</li>
                 <li>About</li>
-                <li>Search</li>
+                <li className='search-bar-container'>
+                  <i className='fa fa-search'></i>
+                  <input type="text" className='search-bar' placeholder='Search ...'/>
+                </li>
             </ul>
         </div>
         <div className="right">
