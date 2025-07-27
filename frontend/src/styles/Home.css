@@ -7,16 +7,17 @@
     flex-direction: row;
     font-family: 'Poppins', sans-serif;
     color: #2b2b2b;
+    background-color: #fcf7f8;
 }
 h1 {
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 .filter-section {
-    width: 25%;
-    border: 1px solid black;
+    width: 15%;
     padding: 0.5rem 2rem;
     margin: 0;
+    background-color: #f5eff1;
 }
 .filter-clear-btn {
     all: unset;
@@ -24,6 +25,8 @@ h1 {
     width: auto;
     margin-bottom: 1vh;
     border-bottom: 1px dotted #2b2b2b;
+    font-size: 0.9rem;
+    color: #6a6a6a;
 }
 .filter-clear-btn:active{
     all: unset;
@@ -31,10 +34,56 @@ h1 {
     width: auto;
     color: #a31621;
     margin-bottom: 1vh;
-    border-bottom: 1px outset #a31621;
+    border: 1px outset #a31621;
+    font-size: 0.9rem;
+}
+.filter-list {
+    width: 100%;
+    margin: 0;
+    margin-top: 0.6rem;
+    padding: 0;
+    text-align: left;
+}
+.filter-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+.filter-list li {
+    margin-bottom: 0.5rem;
+}
+.filter-list label {
+    cursor: pointer;
+}
+.filter-list li label:hover {
+    color: #a31621;
 }
 .product-section {
-    width: 75%;
+    width: 85%;
+}
+.sort-section {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+    margin: 2rem;
+}
+.sort-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     border: 1px solid black;
-
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+}
+#sort {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2b2b2b;
+    text-align: center;
 }
