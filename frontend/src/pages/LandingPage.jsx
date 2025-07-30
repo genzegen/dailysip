@@ -67,19 +67,19 @@ export default function LandingPage() {
                 <p style={{ marginTop: '0.5rem', marginBottom: '1.6rem', fontSize: '1rem' }}>
                     Signature selections that define our taste and quality.</p>
                 <div className='latest-products'>
-                    <div className={`product-card left ${showProducts ? 'animate' : ''}`}>
+                    <div className={`landing-product-card left ${showProducts ? 'animate' : ''}`}>
                         {/* <img src="/placeholder.png" alt="bg" /> */}
                         <h1>Product 1</h1>
                         <p>Description of product</p>
                         <p>Price</p>
                     </div>
-                    <div className={`product-card center ${showProducts ? 'animate' : ''}`}>
+                    <div className={`landing-product-card center ${showProducts ? 'animate' : ''}`}>
                         {/* <img src="/placeholder.png" alt="bg" /> */}
                         <h1>Product 1</h1>
                         <p>Description of product</p>
                         <p>Price</p>
                     </div>
-                    <div className={`product-card right ${showProducts ? 'animate' : ''}`}>
+                    <div className={`landing-product-card right ${showProducts ? 'animate' : ''}`}>
                         {/* <img src="/placeholder.png" alt="bg" /> */}
                         <h1>Product 1</h1>
                         <p>Description of product</p>

@@ -46,6 +46,7 @@ export default function Home() {
                                 </label>
                             </li>
                         </ul>
+                        <div className='apply-filters'>Apply filters</div>
                     </div>
                 </div>
                 <div className='product-section'>
