@@ -1,8 +1,8 @@
 .home-container {
     width: 100vw;
-    height: 200vh;
+    height: 90vh;
     margin-top: 10vh;
-    overflow-y: auto;
+    overflow-y: hidden;
     display: flex;
     flex-direction: row;
     font-family: 'Poppins', sans-serif;
@@ -59,8 +59,44 @@ h1 {
 .filter-list li label:hover {
     color: #a31621;
 }
+.apply-filters {
+    cursor: pointer;
+    background-color: #a31621;
+    color: #fcf7f8;
+    font-weight: bold;
+    border-radius: 13px;
+    text-align: center;
+    padding: 3px;
+    width: 150px;
+}
+.apply-filters:hover {
+    cursor: pointer;
+    background-color: #af2631;
+    color: #fcf7f8;
+    font-weight: bold;
+    border-radius: 13px;
+    text-align: center;
+    padding: 3px;
+    width: 150px;
+}
+.apply-filters:active {
+    cursor: pointer;
+    background-color: #d33b48;
+    color: #fcf7f8;
+    font-weight: bold;
+    border-radius: 13px;
+    text-align: center;
+    padding: 3px;
+    width: 150px;
+}
 .product-section {
     width: 85%;
+    height: 90vh;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 5vh;
+    overflow: hidden;
+    overflow-y: auto;
 }
 .sort-section {
     text-align: right;
@@ -69,6 +105,7 @@ h1 {
     align-items: flex-end;
     gap: 0.4rem;
     margin: 2rem;
+    margin-bottom: 0.7rem;
 }
 .sort-button {
     display: flex;

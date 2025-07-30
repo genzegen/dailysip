@@ -1,36 +1,94 @@
-import '../styles/Products.css'
+import '../styles/Products.css';
 
-const products = [
+const productslist = [
   {
-    name: 'Espresso Beans',
-    price: '12.99',
+    id: 1,
+    name: 'Morning Bundle',
+    price: 1299,
   },
   {
-    name: 'Green Tea Pack',
-    price: '9.50',
+    id: 2,
+    name: 'Couples Date Bundle',
+    price: 2999,
   },
   {
-    name: 'Custom Mug',
-    price: '7.25',
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
   },
   {
-    name: 'Coffee Bundle',
-    price: '24.99',
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
   },
-];
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+  {
+    id: 3,
+    name: 'Tea Style Bundle',
+    price: 999,
+  },
+]
 
-export default function Products() {
-    return(
-        <div className='product-grid'>
-            {products.map((product, index) => (
-                <div className='product-card' key={index}>
-                    {/* <img src={product.image} alt={product.name} /> */}
-                    <div className='product-info'>
-                        <h3>{product.name}</h3>
-                        <p>Rs. {product.price}</p>
-                    </div>
-                </div>
-            ))} 
-        </div>
-    );
+export default function Products () {
+  return(
+    <div className="product-grid">
+      {productslist.length > 0 ? (
+          productslist.map(product => (
+          <div key={product.id} className="product-card">
+            <div className='product-img'></div>
+            <div className='product-info'>
+              <h3>{product.name}</h3>
+              <p>Rs. {product.price}</p>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p>No Products found.</p>
+      )}
+    </div>
+  )
 }
