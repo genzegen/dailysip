@@ -22,3 +22,21 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Django and Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite database
+db.sqlite3
+*.sqlite3
+
+# Django migrations
+*/migrations/
+!*/migrations/__init__.py
+
+# Local settings
+*.env
+.env.*
+.env
