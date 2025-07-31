@@ -60,8 +60,11 @@ export default function Header() {
     <div className={`header-container ${show ? 'show' : 'hide'}`}>
         <div className="left">
             <ul>
-                <li style={{ fontWeight: 'bold', fontStyle: 'italic', color: '#A31621' }}>dailySips</li>
-                <li>Shop</li>
+                <li onClick={() => navigate('/')}
+                style={{ fontWeight: 'bold', fontStyle: 'italic', color: '#A31621' }}>
+                  dailySips
+                </li>
+                <li onClick={() => navigate('/home')}>Shop</li>
                 <li>About</li>
                 <li className='search-bar-container'>
                   <i className='fa fa-search'></i>
