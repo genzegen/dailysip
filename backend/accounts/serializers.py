@@ -34,6 +34,16 @@ class LoginSerializer(serializers.Serializer):
             return user
         raise serializers.ValidationError("Invalid Crendentials")
     
+class AdminLoginSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField(write_only=True)
+    
+    def validate(self, data):
+        user = authenticate(username=data['username'], password=data['password'])
+        if user and user.is_active and user.is_staff:
+            return user
+        raise serializers.ValidationError("Invalid Admin Credentials")
+    
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

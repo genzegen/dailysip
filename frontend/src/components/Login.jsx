@@ -10,7 +10,6 @@ export default function Login({ switchToRegister }) {
     const [error, setError] = useState('')
     const navigate = useNavigate();
 
-
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
