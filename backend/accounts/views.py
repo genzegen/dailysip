@@ -25,3 +25,17 @@ class LoginView(APIView):
                 'username': user_data['username'],
                 }, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class AdminLoginView(APIView):
+    def post(self, request):
+        serializer = AdminLoginSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.validated_data
+            login(request, user)
+            user_data = UserSerializer(user).data
+            return Response({
+                'message': 'Admin login successful',
+                'user': user_data,
+                'username': user_data['username'],
+                }, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
