@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .serializers import *
 from django.contrib.auth import login
 
@@ -25,17 +26,38 @@ class LoginView(APIView):
                 'username': user_data['username'],
                 }, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
 class AdminLoginView(APIView):
     def post(self, request):
         serializer = AdminLoginSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.validated_data
+            
+            if not user.is_staff:
+                return Response({
+                    'error': 'Access denied. Admin privileges required.'
+                }, status=status.HTTP_403_FORBIDDEN)
+                
             login(request, user)
             user_data = UserSerializer(user).data
             return Response({
                 'message': 'Admin login successful',
                 'user': user_data,
                 'username': user_data['username'],
+                'is_staff': True,
                 }, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class AdminOnlyView(APIView):
+    permission_classes = [IsAuthenticated, IsAdminUser]
+    def get(self, request):
+        return Response({
+            'message': 'Welcome to the admin dashboard!',
+            'user': {
+                'username': request.user.username,
+                'email': request.user.email,
+                'is_staff': request.user.is_staff,
+            }
+            
+        })
+        

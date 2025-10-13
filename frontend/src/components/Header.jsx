@@ -10,6 +10,22 @@ export default function Header() {
   const [showLogout, setShowLogout] = useState(false);
   const popupRef = useRef();
 
+  // Listen for storage changes (logout from other tabs)
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      } else {
+        setUser(null);
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  // Initial user load
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if(storedUser) {
@@ -45,10 +61,19 @@ export default function Header() {
   }, []);
 
   const handleLogout = () => {
+    // Remove all auth-related items
     localStorage.removeItem('user');
+    localStorage.removeItem('token'); // Don't forget this!
+    
+    // Reset state
     setUser(null);
     setShowLogout(false);
+    
+    // Navigate to home and refresh to clear any protected state
     navigate('/');
+    
+    // Optional: Force refresh to ensure all components reset
+    window.location.reload();
   }
 
   const handleLoginClick = () => {
@@ -79,10 +104,19 @@ export default function Header() {
                     <li 
                       onClick={() => setShowLogout(prev => !prev)} 
                       style={{ color: '#2b2b2b', cursor: 'pointer', position: 'relative' }}
+                      className="user-menu"
                     >
-                      {user.username}
+                      <span className="username">
+                        {user.first_name || user.username}
+                        {user.is_staff && <span className="staff-badge">Staff</span>}
+                      </span>
                       {showLogout && (
                         <div className='logout-popup' ref={popupRef}>
+                          <div className="user-info">
+                            <strong>{user.first_name || user.username}</strong>
+                            <span>{user.email}</span>
+                            {user.is_staff && <span className="staff-label">Staff Member</span>}
+                          </div>
                           <button onClick={handleLogout} className='logout-button'>Logout</button>
                         </div>
                       )}
@@ -91,6 +125,7 @@ export default function Header() {
                     <li 
                       onClick={handleLoginClick}
                       style={{ cursor: 'pointer' }}
+                      className="login-button"
                     >
                       Login
                     </li>
