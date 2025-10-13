@@ -9,6 +9,12 @@ export default function Sidebar() {
         setIsOpen(!isOpen);
     };
 
+    const handleAdminLogout = () => {
+        localStorage.removeItem('admin');
+        localStorage.removeItem('token');
+        window.location.href = '/admin/login';
+    }
+
     return (
         <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
             <div className="sidebar-header">
@@ -23,10 +29,11 @@ export default function Sidebar() {
                     <li><i className="fa fa-box"></i>Products</li>
                     <li><i className="fa fa-cog"></i>Settings</li>
                 </ul>
+                <button onClick={toggleSidebar}>
+                    {isOpen ? 'Close' : 'Open'} Sidebar
+                </button>
+                <button onClick={handleAdminLogout}>Logout</button>
             </div>
-            <button onClick={toggleSidebar}>
-                {isOpen ? 'Close' : 'Open'} Sidebar
-            </button>
         </div>
     );
 }

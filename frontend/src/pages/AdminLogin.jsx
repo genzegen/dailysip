@@ -5,7 +5,7 @@ import '../styles/AdminLogin.css';
 
 export default function AdminLogin() {
     const [form, setForm] = useState({ username: '', password: '' });
-    const [error, setError] = useState('');
+    const [error, setError] = useState(''); 
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -20,13 +20,16 @@ export default function AdminLogin() {
                 username: form.username,
                 password: form.password
             });
+            console.log('API Response:', res.data);
 
+            localStorage.setItem('token', 'admin-authenticated');
             localStorage.setItem('admin', JSON.stringify({
                 username: res.data.username,
-                email: res.data.email
+                email: res.data.email,
+                isStaff: res.data.is_staff,
             }));
 
-            navigate('/admin/dashboard');
+            navigate('/admin');
         } catch (err) {
             console.log(err);
             setError('Invalid Admin Credentials');
