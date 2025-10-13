@@ -1,0 +1,22 @@
+.admin-main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+}
+
+.admin-sidebar {
+    padding: 20px;
+    width: 15%;
+    height: 100vh;
+    background-color: #252525;
+    color: white;
+}
+
+.admin-content {
+    padding: 20px;
+    width: 85%;
+    height: 100vh;
+    overflow-y: auto;
+}
