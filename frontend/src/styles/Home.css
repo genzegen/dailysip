@@ -60,13 +60,14 @@ h1 {
     color: #a31621;
 }
 .apply-filters {
+    margin-top: 2rem;
     cursor: pointer;
     background-color: #a31621;
     color: #fcf7f8;
     font-weight: bold;
     border-radius: 13px;
     text-align: center;
-    padding: 3px;
+    padding: 8px;
     width: 150px;
 }
 .apply-filters:hover {
