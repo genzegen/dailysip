@@ -15,8 +15,24 @@
 }
 
 .admin-content {
-    padding: 20px;
     width: 85%;
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: hidden;
+}
+
+.admin-content-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 15%;
+    padding-right: 40px;
+    gap: 2rem;
+    font-size: 1.5rem;
+    background-color: rgb(231, 238, 240);
+}
+
+.admin-content-renders {
+    padding: 20px;
+    height: 85%;
+    background-color: rgb(243, 243, 243);
 }

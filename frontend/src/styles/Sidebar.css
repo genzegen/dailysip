@@ -19,7 +19,10 @@ li:hover {
 }
 
 li:active {
-    color: rgb(178, 120, 120);
+    color: rgb(208, 142, 142);
+}
+li.active {
+    color: rgb(234, 142, 142);
 }
 
 ul {
