@@ -1,13 +1,21 @@
 import '../styles/Sidebar.css';
 import cappu from '../assets/cappu.png';
 
-export default function Sidebar() {
+export default function Sidebar({ activeTab, setActiveTab }) {
 
     const handleAdminLogout = () => {
         localStorage.removeItem('admin');
         localStorage.removeItem('token');
         window.location.href = '/admin/login';
     }
+
+    const menuItems = [
+        { key: 'dashboard', label: 'Dashboard', icon: 'fa-tachometer-alt' },
+        { key: 'orders', label: 'Orders', icon: 'fa-shopping-bag' },
+        { key: 'reports', label: 'Reports', icon: 'fa-chart-line' },
+        { key: 'products', label: 'Products', icon: 'fa-box' },
+        { key: 'settings', label: 'Settings', icon: 'fa-cog' }
+    ]
 
     return (
         <div className='sidebar'>
@@ -17,11 +25,16 @@ export default function Sidebar() {
             </div>
             <div className="sidebar-content">
                 <ul>
-                    <li><i className="fa fa-tachometer-alt"></i>Dashboard</li>
-                    <li><i className="fa fa-shopping-bag"></i>Orders</li>
-                    <li><i className="fa fa-chart-line"></i>Reports</li>
-                    <li><i className="fa fa-box"></i>Products</li>
-                    <li><i className="fa fa-cog"></i>Settings</li>
+                    {menuItems.map(item => (
+                        <li
+                            key={item.key}
+                            className={activeTab === item.key ? 'active' : ''}
+                            onClick={() => setActiveTab(item.key)}
+                        >
+                            <i className={`fas ${item.icon}`}></i>
+                            <span>{item.label}</span>
+                        </li>
+                    ))}
                 </ul>
                 <button onClick={handleAdminLogout}>Logout</button>
             </div>
