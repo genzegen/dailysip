@@ -32,7 +32,8 @@
 }
 
 .admin-content-renders {
-    padding: 20px;
+    margin: 0;
+    padding: 12px;
     height: 85%;
     background-color: rgb(243, 243, 243);
 }
