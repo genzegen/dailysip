@@ -24,7 +24,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 15%;
+    height: 11%;
     padding-right: 40px;
     gap: 2rem;
     font-size: 1.5rem;
@@ -34,6 +34,6 @@
 .admin-content-renders {
     margin: 0;
     padding: 12px;
-    height: 85%;
+    height: 100%;
     background-color: rgb(243, 243, 243);
 }
