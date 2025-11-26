@@ -5,6 +5,7 @@ export default function AdminProducts() {
   const [product, setProduct] = useState({
     name: "",
     description: "",
+    quantity: "",
     price: "",
     discount: "",
     tags: [],
@@ -34,6 +35,7 @@ export default function AdminProducts() {
     const formData = new FormData();
     formData.append("name", product.name);
     formData.append("description", product.description);
+    formData.append("quantity", product.quantity);
     formData.append("price", product.price);
     formData.append("discount", product.discount || "");
     formData.append("tags", product.tags.join(",")); // convert array → string
@@ -43,7 +45,7 @@ export default function AdminProducts() {
     }
 
     try {
-        const response = await fetch("http://localhost:8000/api/products/", {
+        const response = await fetch("http://localhost:8000/api/products/create/", {
         method: "POST",
         body: formData,
         });
@@ -54,6 +56,7 @@ export default function AdminProducts() {
             name: "",
             description: "",
             price: "",
+            quantity: "",
             discount: "",
             tags: [],
             image: null,
@@ -99,24 +102,24 @@ export default function AdminProducts() {
                 accept="image/*"
                 onChange={handleImageChange}
                 style={{ display: "none" }}
-                id="imageInput"
               />
               {!product.imagePreview ? (
-                <div
-                  className="image-upload-placeholder"
-                  onClick={() => document.getElementById('imageInput').click()}
-                >
-                    Click to upload image
+                <div className="image-upload-placeholder">
+                  Click to upload image
                 </div>
               ) : (
                 <img
                   src={product.imagePreview}
                   alt="Preview"
                   className="image-preview"
-                  onClick={() => document.getElementById('imageInput').click()}
                 />
               )}
             </label>
+
+            <button type="submit" className="admin-products-submit">
+              Add Product
+            </button>
+
           </div>
 
           {/* Right Column */}
@@ -129,6 +132,18 @@ export default function AdminProducts() {
                 onChange={handleChange}
                 placeholder="Enter product description"
                 rows={6}
+              />
+            </label>
+
+              <label>
+              Quantity:
+              <input
+                type="number"
+                name="quantity"
+                value={product.quantity}
+                onChange={handleChange}
+                placeholder="Enter product quantity"
+                required
               />
             </label>
 
@@ -179,10 +194,6 @@ export default function AdminProducts() {
             </div>
           </div>
         </div>
-
-        <button type="submit" className="admin-products-submit">
-          Add Product
-        </button>
       </form>
     </div>
   );

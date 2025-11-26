@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import create_product
+from .views import create_product, product_list
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', create_product, name='create_product'),
+    path('', product_list, name='product_list'),
+    path('create/', create_product, name='create_product')
 ]
 
 if settings.DEBUG:
