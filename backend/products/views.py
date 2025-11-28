@@ -16,6 +16,42 @@ def create_product(request):
 
 @api_view(['GET'])
 def product_list(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('-id')
     serializer = ProductSerializer(products, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def product_detail(request, pk):
+    try:
+        product = Product.objects.get(pk=pk)
+    except Product.DoesNotExist:
+        return Response({"error": "Product not found"}, status=404)
+
+    serializer = ProductSerializer(product)
+    return Response(serializer.data)
+
+@api_view(['PUT', 'PATCH'])
+@parser_classes([MultiPartParser, FormParser])
+def update_product(request, pk):
+    try:
+        product = Product.objects.get(pk=pk)
+    except Product.DoesNotExist:
+        return Response({"error": "Product not found"}, status=404)
+
+    serializer = ProductSerializer(product, data=request.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=200)
+    return Response(serializer.errors, status=400)
+
+
+@api_view(['DELETE'])
+def delete_product(request, pk):
+    print("Delete request received for product ID:", pk)
+    try:
+        product = Product.objects.get(pk=pk)
+    except Product.DoesNotExist:
+        return Response({"error": "Product not found"}, status=404)
+
+    product.delete()
+    return Response({"message": "Product deleted"}, status=204)
