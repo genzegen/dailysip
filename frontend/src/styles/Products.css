@@ -15,7 +15,7 @@
 .product-card:hover {
     transform: scale(1.02);
     border-radius: 5px;
-    box-shadow: #00000018 4px 5px 6px;
+    box-shadow: #00000018 5px 5px 6px 3px;
 }
 .product-img {
     width: 100%;
@@ -68,8 +68,9 @@
 }
 
 .product-info .original-price {
-    color: #d32f2f;
-    font-weight: 600;
+    color: rgb(26, 117, 26);
+    text-decoration: wavy underline;
+    font-weight: bolder;
     margin-left: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
