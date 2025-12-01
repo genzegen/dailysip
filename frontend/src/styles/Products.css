@@ -68,9 +68,9 @@
 }
 
 .product-info .original-price {
-    color: rgb(26, 117, 26);
+    color: #1a751a;
     text-decoration: wavy underline;
     font-weight: bolder;
     margin-left: 0.5rem;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
