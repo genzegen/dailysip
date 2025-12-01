@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import AdminLogin from './pages/AdminLogin';
 import AdminPage from './pages/AdminPage';
 import ProtectedRoute from './components/ProtectedRoute'; 
+import SingleProduct from './components/SingleProduct';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/getstarted" element={<GetStarted />} />
         <Route path="/home" element={<Home />} />
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
         <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
       </Routes>
     </Router>

@@ -1,0 +1,159 @@
+.single-product-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  width: 85%;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #2b2b2b;
+  background-color: #fcf7f8; 
+  min-height: 80vh;
+}
+
+.back-btn {
+  background: none;
+  width: 200px;
+  border: none;
+  font-size: 1rem;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: #555;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect */
+.back-btn:hover {
+  background-color: #215a21;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+/* Active (Click) Effect */
+.back-btn:active {
+  background-color: #4ba04b;
+  width: 200px;
+  border: none;
+  font-size: 1rem;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  transform: scale(0.98);
+}
+
+
+/* Layout: Image + Details */
+.single-product-content {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 1rem; /* avoid scrollbar overlap */
+}
+
+.single-product-content img {
+  width: 400px;
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+/* Product Details */
+.details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.details h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.quantity {
+  font-size: 1rem;
+  color: #333;
+  margin-top: -0.2rem;
+}
+
+.quantity strong {
+  color: #1a751a;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: #1a751a;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.like-btn, .cart-btn {
+  padding: 0.75rem 1.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.like-btn {
+  border: 1px solid #1a751a;
+  color: #1a751a;
+  background: white;
+}
+
+.cart-btn {
+  background-color: #1a751a;
+  color: white;
+}
+
+.like-btn:hover,
+.cart-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .single-product-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .single-product-content img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .details {
+    align-items: center;
+  }
+
+  .details h2 {
+    font-size: 1.6rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+  }
+}

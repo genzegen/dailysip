@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Products from '../components/Products';
+import SingleProduct from '../components/SingleProduct';
 import '../styles/Home.css';
 
 export default function Home() {
     const [products, setProducts] = useState([]);
     const [sortOption, setSortOption] = useState("relevance");
+    const [selectedProduct, setSelectedProduct] = useState(null); // Added missing state
 
     useEffect(() => {
         fetch("http://localhost:8000/api/products/")
@@ -14,17 +16,18 @@ export default function Home() {
             .catch((err) => console.error(err));
     }, []);
 
-    // Sorting logic
     const sortedProducts = [...products].sort((a, b) => {
         if (sortOption === 'price-low-high') return a.price - b.price;
         if (sortOption === 'price-high-low') return b.price - a.price;
-        if (sortOption === 'newest-arrivals') return new Date(b.id) - new Date(a.id);
+        if (sortOption === 'newest-arrivals') return b.id - a.id;
+        return 0;
     });
 
     return (
         <div>
             <Header />
             <div className='home-container'>
+                {/* FILTER SECTION */}
                 <div className='filter-section'>
                     <div className='filter-heading' style={{
                         height: '8vh',
@@ -39,47 +42,46 @@ export default function Home() {
                     <div className='filter-list'>
                         <ul>
                             <li style={{ fontWeight: '600', fontSize: '1.2rem' }}>Categories</li>
-                            <li className='coffee-filter'>
-                                <label><input type="checkbox" style={{ marginRight: '0.8rem' }} />Coffee</label>
-                            </li>
-                            <li className='tea-filter'>
-                                <label><input type="checkbox" style={{ marginRight: '0.8rem' }} />Tea</label>
-                            </li>
-                            <li className='mugs-filter'>
-                                <label><input type="checkbox" style={{ marginRight: '0.8rem' }} />Mugs</label>
-                            </li>
-                            <li className='packs-filter'>
-                                <label><input type="checkbox" style={{ marginRight: '0.8rem' }} />Packages</label>
-                            </li>
+                            <li><label><input type="checkbox" /> Coffee</label></li>
+                            <li><label><input type="checkbox" /> Tea</label></li>
+                            <li><label><input type="checkbox" /> Mugs</label></li>
+                            <li><label><input type="checkbox" /> Packages</label></li>
                         </ul>
                         <div className='apply-filters'>Apply filters</div>
                     </div>
                 </div>
 
-                {/* PRODUCT SECTION */}
-                <div className='product-section'>
-                    <div className='sort-section'>
-                        <div className='sort-button'>
-                            <span>Sort by:</span>
-                            <select
-                                id="sort"
-                                value={sortOption}
-                                onChange={(e) => setSortOption(e.target.value)}
-                            >
-                                <option value="relevance">Relevance</option>
-                                <option value="price-low-high">Price: Low to High</option>
-                                <option value="price-high-low">Price: High to Low</option>
-                                <option value="newest-arrivals">Newest Arrivals</option>
-                            </select>
+                {selectedProduct ? (
+                    <SingleProduct product={selectedProduct} onBack={() => setSelectedProduct(null)} />
+                ) : (
+                    <>
+                        {/* PRODUCT SECTION */}
+                        <div className='product-section'>
+                            <div className='sort-section'>
+                                <div className='sort-button'>
+                                    <span>Sort by:</span>
+                                    <select
+                                        id="sort"
+                                        value={sortOption}
+                                        onChange={(e) => setSortOption(e.target.value)}
+                                    >
+                                        <option value="relevance">Relevance</option>
+                                        <option value="price-low-high">Price: Low to High</option>
+                                        <option value="price-high-low">Price: High to Low</option>
+                                        <option value="newest-arrivals">Newest Arrivals</option>
+                                    </select>
+                                </div>
+                                <p style={{ fontSize: '0.9rem', marginTop: '0' }}>
+                                    Showing {sortedProducts.length} Products
+                                </p>
+                            </div>
+                            <Products
+                                productslist={sortedProducts}
+                                onProductClick={setSelectedProduct}
+                            />
                         </div>
-                        <p style={{ fontSize: '0.9rem', marginTop: '0' }}>
-                            Showing {sortedProducts.length} Products
-                        </p>
-                    </div>
-
-                    {/* Send sorted products as props */}
-                    <Products productslist={sortedProducts} />
-                </div>
+                    </>
+                )}
             </div>
         </div>
     );
