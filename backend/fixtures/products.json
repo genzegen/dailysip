@@ -1,0 +1,110 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "name": "Classic Ceramic Coffee Cup",
+      "price": "499.00",
+      "quantity": 25,
+      "discount": "10.00",
+      "tags": "cups,coffee",
+      "description": "Start your mornings with our Classic Ceramic Coffee Cup. Crafted from high-quality ceramic, it ensures your coffee stays hot while providing a comfortable grip. Perfect for home or office, this cup is microwave and dishwasher safe, making it convenient for everyday use. Its timeless design complements any kitchen or coffee setup, and the 350ml capacity is ideal for your favorite espresso, cappuccino, or latte."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "name": "Premium Arabica Coffee Beans",
+      "price": "1200.00",
+      "quantity": 50,
+      "discount": "0.00",
+      "tags": "coffee",
+      "description": "Experience the rich aroma and smooth taste of our Premium Arabica Coffee Beans. Sourced from the finest coffee plantations, these beans are roasted to perfection to bring out a balanced flavor profile with notes of chocolate and caramel. Ideal for both home brewing and professional espresso machines, our Arabica beans promise a luxurious coffee experience that delights the senses."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "name": "Green Herbal Tea Pack",
+      "price": "799.00",
+      "quantity": 40,
+      "discount": "15.00",
+      "tags": "tea",
+      "description": "Rejuvenate your body and mind with our Green Herbal Tea Pack. Made from a blend of premium green tea leaves and natural herbs, this tea is packed with antioxidants and essential nutrients. Each tea bag releases a soothing aroma and a refreshing taste that helps boost metabolism, improve digestion, and reduce stress. Perfect for daily wellness rituals or a relaxing evening ritual."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "name": "Assorted Tea Gift Package",
+      "price": "1499.00",
+      "quantity": 20,
+      "discount": "5.00",
+      "tags": "tea,packages",
+      "description": "Surprise your loved ones with our Assorted Tea Gift Package. This luxurious set contains a variety of teas including green, black, herbal, and fruit blends. Beautifully packaged, it’s perfect for birthdays, holidays, or special occasions. Each tea bag is individually wrapped to preserve freshness and flavor, offering a delightful tasting experience that everyone will appreciate."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "name": "Espresso Shot Glass Set",
+      "price": "699.00",
+      "quantity": 30,
+      "discount": "0.00",
+      "tags": "cups,coffee",
+      "description": "Enhance your espresso experience with our Espresso Shot Glass Set. Each glass is crafted with durable borosilicate glass to withstand high temperatures while maintaining clarity. Designed to hold the perfect shot of espresso, these glasses are stylish, functional, and ideal for serving friends or for personal indulgence. Dishwasher safe and elegantly designed to fit any coffee bar."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "name": "Premium Loose Leaf Black Tea",
+      "price": "899.00",
+      "quantity": 60,
+      "discount": "10.00",
+      "tags": "tea",
+      "description": "Indulge in the bold and robust flavors of our Premium Loose Leaf Black Tea. Hand-picked from the finest tea gardens, this tea offers a full-bodied taste with subtle floral undertones. Perfect for morning or afternoon tea rituals, it provides a comforting and energizing experience. Brew it strong or light according to your preference and savor the delicate aroma and smooth finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "name": "Coffee Lover’s Starter Kit",
+      "price": "2999.00",
+      "quantity": 15,
+      "discount": "20.00",
+      "tags": "coffee,packages",
+      "description": "Kickstart your coffee journey with our Coffee Lover’s Starter Kit. This comprehensive package includes freshly roasted Arabica beans, a high-quality ceramic mug, a stainless steel coffee scoop, and a reusable coffee filter. Designed for beginners and enthusiasts alike, this kit provides everything you need to brew café-quality coffee at home. Perfect as a gift or personal treat, it guarantees a rich and aromatic coffee experience."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+      "name": "Herbal Wellness Tea Box",
+      "price": "1099.00",
+      "quantity": 25,
+      "discount": "0.00",
+      "tags": "tea,packages",
+      "description": "Promote your health with our Herbal Wellness Tea Box. Featuring a blend of calming herbs like chamomile, peppermint, and lemongrass, this tea aids relaxation, digestion, and detoxification. Each box contains 20 individually wrapped tea bags, ensuring freshness and convenience. Enjoy a soothing cup any time of the day and embrace the natural goodness of herbal infusions."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+      "name": "Double-Walled Glass Coffee Mug",
+      "price": "799.00",
+      "quantity": 35,
+      "discount": "5.00",
+      "tags": "cups,coffee",
+      "description": "Sip your coffee in style with our Double-Walled Glass Coffee Mug. Designed to keep beverages hot while remaining cool to the touch, this mug enhances the coffee drinking experience. Its transparent design allows you to enjoy the rich color of your coffee, while the sturdy base ensures stability. Perfect for home or office, this mug is microwave and dishwasher safe."
+    }
+  }
+]

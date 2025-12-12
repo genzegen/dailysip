@@ -9,13 +9,16 @@
     padding-top: 0;
 }
 .product-card {
+    padding: 0.3rem;
     overflow: hidden;
+    border-radius: 3px;
     transition: transform 0.2s ease;
 }
 .product-card:hover {
+    padding: 0.3rem;
     transform: scale(1.02);
     border-radius: 5px;
-    box-shadow: #00000018 5px 5px 6px 3px;
+    box-shadow: #00000018 5px 5px 5px 4px;
 }
 .product-img {
     width: 100%;
@@ -42,19 +45,21 @@
     z-index: 2;
 }
 .product-card {
-    position: relative; /* needed for badge positioning */
+    position: relative;
 }
 .product-info {
-    margin-left: 0.7rem;
-    margin-right: 0.7rem;
+    margin: 0.7rem 0.3rem;
+    margin-bottom: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;  /* vertically aligns everything */
+    flex-direction: column;
+    align-items: start;
     text-align: start;
 }
 
-.product-info h3,
+.product-info h3 {
+    font-size: 1.2rem;
+    margin: 0;
+}
 .product-info .original-price,
 .product-info .discounted-price {
     font-size: 1rem; /* same size for all */
@@ -72,5 +77,24 @@
     text-decoration: wavy underline;
     font-weight: bolder;
     margin-left: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+}
+
+.stock-pill {
+    display: inline-block;
+    margin-top: 0.3rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.stock-pill.low {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.stock-pill.out {
+    background-color: #ffebee;
+    color: #c62828;
 }

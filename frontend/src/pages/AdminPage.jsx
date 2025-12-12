@@ -4,7 +4,6 @@ import Sidebar from "../components/Sidebar";
 import '../styles/AdminPage.css';
 import AdminDashboard from "../components/admin/AdminDashboard";
 import AdminOrders from "../components/admin/AdminOrders";
-import AdminReports from "../components/admin/AdminReports";
 import AdminProducts from "../components/admin/AdminProducts";
 import AdminSettings from "../components/admin/AdminSettings";
 
@@ -27,8 +26,6 @@ export default function AdminPage() {
                 return <AdminDashboard />;
             case 'orders':
                 return <AdminOrders />;
-            case 'reports':
-                return <AdminReports />;
             case 'products':
                 return <AdminProducts />;
             case 'settings':

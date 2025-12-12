@@ -3,5 +3,6 @@ from .views import *
 
 urlpatterns = [
     path('landing_page/', landing_page),
-    path('accounts/', include('accounts.urls'))
+    path('accounts/', include('accounts.urls')),
+    path('payment/esewa/verify/', esewa_verify),
 ]

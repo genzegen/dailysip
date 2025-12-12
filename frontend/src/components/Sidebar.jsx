@@ -12,7 +12,6 @@ export default function Sidebar({ activeTab, setActiveTab }) {
     const menuItems = [
         { key: 'dashboard', label: 'Dashboard', icon: 'fa-tachometer-alt' },
         { key: 'orders', label: 'Orders', icon: 'fa-shopping-bag' },
-        { key: 'reports', label: 'Reports', icon: 'fa-chart-line' },
         { key: 'products', label: 'Products', icon: 'fa-box' },
         { key: 'settings', label: 'Settings', icon: 'fa-cog' }
     ]

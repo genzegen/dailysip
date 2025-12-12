@@ -9,7 +9,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DailySips</title>
+
+    <!-- Basic SEO meta -->
+    <title>dailySips – Coffee & Tea Store</title>
+    <meta name="description" content="dailySips – a minimal coffee and tea store where you can browse products, manage your cart, and place simple online orders." />
+    <meta name="keywords" content="dailySips, coffee, tea, cups, online store, ecommerce" />
+
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="dailySips – Coffee & Tea Store" />
+    <meta property="og:description" content="Premium blends, minimum effort. Browse coffee, tea and cups in a simple online experience." />
+    <meta property="og:type" content="website" />
+    <!-- Replace with your real deployed URL when you host the app -->
+    <meta property="og:url" content="https://example.com" />
+    <!-- Optional: set a real preview image when you have one -->
+    <meta property="og:image" content="https://example.com/og-image.png" />
+
+    <!-- Google Analytics (GA4) -->
+    <!-- Set VITE_GA_MEASUREMENT_ID in your .env file to enable -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_MEASUREMENT_ID%"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      // Disable automatic page_view; handled manually in React Router
+      gtag('config', '%VITE_GA_MEASUREMENT_ID%', { send_page_view: false });
+    </script>
   </head>
   <body>
     <div id="root"></div>

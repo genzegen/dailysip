@@ -12,7 +12,8 @@ li i {
     margin-right: 1.2rem;
 }
 
-li:hover {
+/* Sidebar-only hover for list items */
+.sidebar-container li:hover {
     cursor: pointer;
     color: rgb(229, 178, 178);
     transition: 0.2s;

@@ -6,11 +6,44 @@
 }
 
 .admin-products-container {
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
   overflow-y: auto;
+  overflow-x: auto;
   padding: 0.75rem 0.75rem;
 }
+
+.table-wrapper {
+  max-height: 450px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 8px;
+}
+
+.product-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-list-table thead {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 5;
+}
+
+.product-list-table th,
+.product-list-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ececec;
+}
+
+.product-list-table tbody tr img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
 
 .admin-products-title {
   margin-bottom: 0.5rem;
@@ -38,6 +71,7 @@
   display: flex;
   width: 100%;
   gap: 2rem;
+  flex-wrap: wrap; /* allow columns to wrap so tags area doesn't go off-screen */
 }
 
 .admin-products-col-left,
@@ -46,7 +80,14 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 50%;
+  min-width: 280px;
+}
+
+@media (max-width: 900px) {
+  .admin-products-col-left,
+  .admin-products-col-right {
+    width: 100%;
+  }
 }
 
 .admin-products-form label {
@@ -99,6 +140,19 @@
   text-align: center;
 }
 
+/* ✅ NEW: Multiple image preview container */
+.image-preview-container {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  border: 1px dashed #aaa;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /* Image preview */
 .image-preview {
   width: 90%;
@@ -107,6 +161,15 @@
   object-fit: contain;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+/* ✅ NEW: Image preview in grid (when multiple) */
+.image-preview-container .image-preview {
+  width: 120px;
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
+  object-fit: cover;
 }
 
 /* Price input with Rs. indicator */
@@ -132,7 +195,8 @@
 
 .tag-checkbox-group {
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 6px;
 }
 
@@ -141,6 +205,32 @@
   align-items: center;
   gap: 5px;
   font-size: 14px;
+}
+
+/* Ensure tags column in table wraps and doesn't overflow */
+.product-list-table th:nth-child(6),
+.product-list-table td:nth-child(6) {
+  max-width: 200px;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* ✅ NEW: Discount preview */
+.discount-preview {
+  margin-top: 8px;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* ✅ NEW: Price styling in table */
+.price-old {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.price-new {
+  color: #4CAF50;
+  font-weight: bold;
 }
 
 /* Button */
@@ -166,6 +256,23 @@
   background-color: #999999;
   padding: 0.6rem 1rem;
   width: 250px;
+}
+
+/* ✅ NEW: Cancel button */
+.cancel-edit-btn {
+  padding: 0.6rem 1rem;
+  width: 250px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.cancel-edit-btn:hover {
+  background-color: #da190b;
 }
 
 /* Add product button */
@@ -256,4 +363,10 @@
 
 .delete-btn:hover {
   background-color: #da190b;
+}
+
+/* Image count badge in table */
+.product-list-table td > div {
+  position: relative;
+  display: inline-block;
 }

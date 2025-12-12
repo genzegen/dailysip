@@ -3,7 +3,7 @@
     height: 100vh;
     display: flex;
     flex-direction: row;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 .admin-sidebar {
@@ -17,7 +17,7 @@
 .admin-content {
     width: 85%;
     height: 100vh;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 .admin-content-header {
@@ -34,6 +34,7 @@
 .admin-content-renders {
     margin: 0;
     padding: 12px;
-    height: 100%;
+    height: calc(100% - 11%);
+    overflow-y: auto;
     background-color: rgb(243, 243, 243);
 }
