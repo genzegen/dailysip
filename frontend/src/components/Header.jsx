@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import CartDropdown from './CartDropdown';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function Header() {
   const [show, setShow] = useState(true);
   const lastScrollY = useRef(0);
@@ -44,7 +46,7 @@ export default function Header() {
 
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:8000/accounts/logout/", {
+      await fetch(`${API_URL}/accounts/logout/`, {
         method: "POST",
         credentials: "include",
       });

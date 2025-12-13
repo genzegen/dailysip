@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function UserOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +14,8 @@ export default function UserOrders() {
         setLoading(true);
         setError(null);
 
-        const res = await fetch("http://localhost:8000/api/products/my-orders/", {
+        // FIXED: Changed from /api/products/my-orders/ to /api/my-orders/
+        const res = await fetch(`${API_URL}/api/my-orders/`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 // Helper function to decode base64
 const base64Decode = (str) => {
   try {
@@ -69,7 +71,7 @@ export default function PaymentSuccess() {
     const verify = async () => {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/payment/esewa/verify/?pid=${encodeURIComponent(transactionUuid)}&amt=${encodeURIComponent(totalAmount)}`,
+          `${API_URL}/api/payment/esewa/verify/?pid=${encodeURIComponent(transactionUuid)}&amt=${encodeURIComponent(totalAmount)}`,
           {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },

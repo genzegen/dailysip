@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function AdminSettings() {
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword1, setNewPassword1] = useState("");
@@ -20,7 +22,7 @@ export default function AdminSettings() {
 
         setLoading(true);
         try {
-            const res = await fetch("http://localhost:8000/api/accounts/change-password/", {
+            const res = await fetch(`${API_URL}/api/accounts/change-password/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

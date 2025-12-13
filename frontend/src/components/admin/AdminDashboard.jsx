@@ -1,4 +1,9 @@
+// ============================================
+// 1. AdminDashboard.jsx - FIXED
+// ============================================
 import React, { useEffect, useState } from "react";
+
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 export default function AdminDashboard() {
 	const [stats, setStats] = useState(null);
@@ -11,7 +16,8 @@ export default function AdminDashboard() {
 				setLoading(true);
 				setError(null);
 
-				const res = await fetch("http://localhost:8000/api/products/dashboard/", {
+				// FIXED: Changed from /api/products/dashboard/ to /api/dashboard/
+				const res = await fetch(`${API_URL}/api/dashboard/`, {
 					method: "GET",
 					headers: { "Content-Type": "application/json" },
 					credentials: "include",

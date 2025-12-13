@@ -1,14 +1,46 @@
-# Django ignores
-backend/__pycache__/
-backend/*.pyc
-backend/db.sqlite3
-backend/media/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.db
+*.sqlite3
+db.sqlite3
+
+# Django
+*.log
+local_settings.py
+staticfiles/
+media/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build
+frontend/dist/
 backend/staticfiles/
-backend/.env
 
-# React ignores
-frontend/node_modules/
-frontend/build/
-frontend/.env
+# Environment
+.env
+.env.local
+.env.production
+.env.development
 
+# IDE
 .vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# System
+Thumbs.db
+desktop.ini

@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../styles/SingleProduct.css'; 
 
+const API_URL = import.meta.env.VITE_API_URL || ''; 
+
 export default function SingleProduct({ product, onBack }) {
   const navigate = useNavigate();
   const images = product.images?.length > 0
-    ? product.images.map(img => `http://localhost:8000${img.image}`)
+    ? product.images.map(img => `${API_URL}${img.image}`)
     : ["/no-image.png"];
 
   const [selectedImage, setSelectedImage] = useState(images[0]);
@@ -21,10 +23,11 @@ export default function SingleProduct({ product, onBack }) {
 
     setAdding(true);
     try {
-      const res = await fetch("http://localhost:8000/api/products/cart/add/", {
+      // FIXED: Changed from /api/products/cart/add/ to /api/cart/add/
+      const res = await fetch(`${API_URL}/api/cart/add/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include", // session auth
+        credentials: "include",
         body: JSON.stringify({ product: product.id, quantity })
       });
 

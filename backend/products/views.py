@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework import status
 from rest_framework.authentication import SessionAuthentication
+from django.views.decorators.csrf import csrf_exempt
 
 from django.db.models import Q, Sum, Value
 from django.db.models.functions import Coalesce
@@ -233,11 +234,6 @@ def delete_product(request, pk):
     product.delete()
     return Response({"message": "Product deleted"}, status=204)
 
-class CsrfExemptSessionAuthentication(SessionAuthentication):
-    def enforce_csrf(self, request):
-        # Disable CSRF checks for these API views (we rely on session auth only)
-        return
-
 @api_view(['GET'])
 @authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
@@ -248,6 +244,7 @@ def cart_detail(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+@csrf_exempt
 @api_view(['PATCH'])
 @authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
@@ -260,7 +257,7 @@ def cart_update_location(request):
     serializer = CartSerializer(cart, context={"request": request})
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-
+@csrf_exempt
 @api_view(['POST'])
 @authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
@@ -319,6 +316,7 @@ def cart_add(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+@csrf_exempt
 @api_view(['DELETE'])
 @authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])

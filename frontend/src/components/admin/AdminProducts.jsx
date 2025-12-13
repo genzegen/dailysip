@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import '../../styles/AdminProducts.css';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function AdminProducts() {
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [products, setProducts] = useState([]);
@@ -20,7 +22,8 @@ export default function AdminProducts() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/products/", {
+      // FIXED: Changed from /api/products/ to /api/
+      const response = await fetch(`${API_URL}/api/`, {
         credentials: "include",
       });
       if (response.ok) {
@@ -57,8 +60,9 @@ export default function AdminProducts() {
     }
 
     try {
+      // FIXED: Changed from /api/products/${id}/update/ to /api/${id}/update/
       const response = await fetch(
-        `http://localhost:8000/api/products/${editingProduct.id}/update/`,
+        `${API_URL}/api/${editingProduct.id}/update/`,
         {
           method: "PUT",
           body: formData,
@@ -117,7 +121,8 @@ export default function AdminProducts() {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/api/products/create/", {
+      // FIXED: Changed from /api/products/create/ to /api/create/
+      const response = await fetch(`${API_URL}/api/create/`, {
         method: "POST",
         body: formData,
         credentials: "include",
@@ -159,8 +164,9 @@ export default function AdminProducts() {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     try {
+      // FIXED: Changed from /api/products/${id}/delete/ to /api/${id}/delete/
       const response = await fetch(
-        `http://localhost:8000/api/products/${id}/delete/`,
+        `${API_URL}/api/${id}/delete/`,
         {
           method: "DELETE",
           credentials: "include",
@@ -182,7 +188,6 @@ export default function AdminProducts() {
   const handleChange = (e) => {
     const updated = { ...product, [e.target.name]: e.target.value };
 
-    // 🔥 auto-calc final price
     if (updated.price && updated.discount) {
       updated.finalPrice = (
         updated.price -
@@ -289,8 +294,8 @@ export default function AdminProducts() {
                         price: "",
                         discount: "",
                         tags: [],
-                        images: [],           // ✅ Reset images
-                        imagePreviews: [],    // ✅ Reset previews
+                        images: [],
+                        imagePreviews: [],
                         finalPrice: "",
                       });
                       setShowAddProduct(false);
@@ -348,7 +353,6 @@ export default function AdminProducts() {
                   />
                 </label>
 
-                {/* NEW FINAL PRICE PREVIEW */}
                 {product.finalPrice && (
                   <p className="discount-preview">
                     Final Price: <strong>Rs. {product.finalPrice}</strong>
@@ -395,10 +399,7 @@ export default function AdminProducts() {
                 <tr>
                   <th>Image</th>
                   <th>Name</th>
-
-                  {/* UPDATED PRICE COLUMN */}
                   <th>Price</th>
-
                   <th>Quantity</th>
                   <th>Discount</th>
                   <th>Tags</th>
@@ -409,7 +410,6 @@ export default function AdminProducts() {
               <tbody>
                 {products.map((p) => (
                   <tr key={p.id}>
-                    {/* IMAGE COLUMN - UPDATED */}
                     <td>
                       <div style={{ position: 'relative', display: 'inline-block' }}>
                         <img
@@ -417,12 +417,12 @@ export default function AdminProducts() {
                             p.images && p.images.length > 0
                               ? (p.images[0].image?.startsWith("http")
                                   ? p.images[0].image
-                                  : `http://localhost:8000${p.images[0].image}`
+                                  : `${API_URL}${p.images[0].image}`
                                 )
                               : (p.image
                                   ? (p.image.startsWith("http")
                                       ? p.image
-                                      : `http://localhost:8000${p.image}`
+                                      : `${API_URL}${p.image}`
                                     )
                                   : "https://via.placeholder.com/80"
                                 )
@@ -449,7 +449,6 @@ export default function AdminProducts() {
 
                     <td>{p.name}</td>
 
-                    {/* PRICE COLUMN */}
                     <td>
                       {p.discount ? (
                         <>
@@ -478,7 +477,6 @@ export default function AdminProducts() {
                         : "-"}
                     </td>
 
-                    {/* ACTION BUTTONS */}
                     <td className="product-list-actions">
                       <button
                         className="edit-btn"
@@ -501,7 +499,7 @@ export default function AdminProducts() {
                             imagePreviews: p.images?.map(img => 
                               img.image?.startsWith("http") 
                                 ? img.image 
-                                : `http://localhost:8000${img.image}`
+                                : `${API_URL}${img.image}`
                             ) || [],
                             finalPrice: final,
                           });

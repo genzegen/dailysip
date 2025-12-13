@@ -8,6 +8,8 @@ import heroImage from '../assets/coffeehero.jpg';
 import Footer from '../components/Footer';
 import Instagram from '../components/Instagram';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function LandingPage() {
 
     const [scrollY, setScrollY] = useState(0);
@@ -24,7 +26,9 @@ export default function LandingPage() {
     useEffect(() => {
         const fetchTop = async () => {
             try {
-                const res = await API.get('products/');
+                // FIXED: Changed from 'products/' to '' (empty string)
+                // Since API baseURL is already '/api/', this becomes '/api/'
+                const res = await API.get('');
                 const data = Array.isArray(res.data) ? res.data : [];
                 setTopProducts(data.slice(0, 3));
             } catch (err) {
@@ -95,7 +99,7 @@ export default function LandingPage() {
                         {topProducts[0] ? (() => {
                             const imgPath = topProducts[0].images?.[0]?.image;
                             const imgUrl = imgPath
-                                ? (imgPath.startsWith('http') ? imgPath : `http://localhost:8000${imgPath}`)
+                                ? (imgPath.startsWith('http') ? imgPath : `${API_URL}${imgPath}`)
                                 : '/no-image.png';
                             return (
                                 <>
@@ -117,7 +121,7 @@ export default function LandingPage() {
                         {topProducts[1] ? (() => {
                             const imgPath = topProducts[1].images?.[0]?.image;
                             const imgUrl = imgPath
-                                ? (imgPath.startsWith('http') ? imgPath : `http://localhost:8000${imgPath}`)
+                                ? (imgPath.startsWith('http') ? imgPath : `${API_URL}${imgPath}`)
                                 : '/no-image.png';
                             return (
                                 <>
@@ -139,7 +143,7 @@ export default function LandingPage() {
                         {topProducts[2] ? (() => {
                             const imgPath = topProducts[2].images?.[0]?.image;
                             const imgUrl = imgPath
-                                ? (imgPath.startsWith('http') ? imgPath : `http://localhost:8000${imgPath}`)
+                                ? (imgPath.startsWith('http') ? imgPath : `${API_URL}${imgPath}`)
                                 : '/no-image.png';
                             return (
                                 <>

@@ -5,6 +5,8 @@ import Products from '../components/Products';
 import SingleProduct from '../components/SingleProduct';
 import '../styles/Home.css';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function Home() {
     const [products, setProducts] = useState([]);
     const [sortOption, setSortOption] = useState("relevance");
@@ -32,9 +34,10 @@ export default function Home() {
         if (appliedTag) params.append('tag', appliedTag);
 
         const queryString = params.toString();
+        // FIXED: Changed from /api/products/ to /api/
         const url = queryString
-            ? `http://localhost:8000/api/products/?${queryString}`
-            : "http://localhost:8000/api/products/";
+            ? `${API_URL}/api/?${queryString}`
+            : `${API_URL}/api/`;
 
         fetch(url)
             .then((res) => res.json())
@@ -165,6 +168,5 @@ export default function Home() {
                 </div>
             </div>
         </div>
-
     );
 }

@@ -37,9 +37,12 @@ db.sqlite3
 !*/migrations/__init__.py
 
 # Local settings
-*.env
-.env.*
-.env
+.env.local
+.env.production.local
+
+# Keep development env files
+!.env.development
+!.env.production
 
 # Mock Data
 backend/fixtures/

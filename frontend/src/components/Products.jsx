@@ -1,6 +1,8 @@
 import '../styles/Products.css';
 import SingleProduct from './SingleProduct'; // optional, if you only need product list, can remove
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function Products({ productslist, onProductClick }) {
   return (
     <div className="product-grid">
@@ -8,7 +10,7 @@ export default function Products({ productslist, onProductClick }) {
         productslist.map((product) => {
           const firstImage =
             product.images && product.images.length > 0
-              ? `http://localhost:8000${product.images[0].image}`
+              ? `${API_URL}${product.images[0].image}`
               : "/no-image.png";
 
           return (
