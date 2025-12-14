@@ -4,11 +4,19 @@ import '../styles/SingleProduct.css';
 
 const API_URL = import.meta.env.VITE_API_URL || ''; 
 
+function toImageUrl(raw) {
+  if (!raw) return "/no-image.svg";
+  if (typeof raw !== "string") return "/no-image.svg";
+  if (raw.startsWith("http://") || raw.startsWith("https://")) return raw;
+  if (raw.startsWith("/")) return `${API_URL}${raw}`;
+  return `${API_URL}/${raw}`;
+}
+
 export default function SingleProduct({ product, onBack }) {
   const navigate = useNavigate();
   const images = product.images?.length > 0
-    ? product.images.map(img => `${API_URL}${img.image}`)
-    : ["/no-image.png"];
+    ? product.images.map(img => toImageUrl(img.image))
+    : ["/no-image.svg"];
 
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const [quantity, setQuantity] = useState(1);

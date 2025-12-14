@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-xwtedf!=8#s-ptiphle$0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['*']  # For deployment, you can restrict this to your domain later
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')  # For deployment, restrict this to your domain
 
 
 # Application definition
@@ -48,12 +48,10 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ALL_ORIGINS = False
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://localhost:3000",
-    "http://localhost:8000",      # Add this
-    "http://127.0.0.1:8000",      # Add this
-]
+CORS_ALLOWED_ORIGINS = os.environ.get(
+    'CORS_ALLOWED_ORIGINS',
+    'http://localhost:5173,http://localhost:3000,http://localhost:8000,http://127.0.0.1:8000'
+).split(',')
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -66,12 +64,10 @@ REST_FRAMEWORK = {
     ]
 }
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",
-    "http://localhost:3000",
-    "http://localhost:8000",      # Add this
-    "http://127.0.0.1:8000",      # Add this
-]
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    'CSRF_TRUSTED_ORIGINS',
+    'http://localhost:5173,http://localhost:3000,http://localhost:8000,http://127.0.0.1:8000'
+).split(',')
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -152,7 +148,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = Path(os.environ.get('MEDIA_ROOT', str(BASE_DIR / 'media')))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -162,12 +158,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Session and Cookie settings for single domain deployment
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_SECURE = False  # True only in production with HTTPS
+SESSION_COOKIE_SECURE = not DEBUG  # True only in production with HTTPS
 SESSION_COOKIE_NAME = 'sessionid'
 
 CSRF_COOKIE_HTTPONLY = False  # Must be False for JS to read it
 CSRF_COOKIE_SAMESITE = 'Lax'
-CSRF_COOKIE_SECURE = False  # True only in production with HTTPS
+CSRF_COOKIE_SECURE = not DEBUG  # True only in production with HTTPS
 CSRF_COOKIE_NAME = 'csrftoken'
 
 # Make sure these are set

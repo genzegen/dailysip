@@ -10,6 +10,14 @@ import Instagram from '../components/Instagram';
 
 const API_URL = import.meta.env.VITE_API_URL || '';
 
+function toImageUrl(raw) {
+    if (!raw) return '/no-image.svg';
+    if (typeof raw !== 'string') return '/no-image.svg';
+    if (raw.startsWith('http://') || raw.startsWith('https://')) return raw;
+    if (raw.startsWith('/')) return `${API_URL}${raw}`;
+    return `${API_URL}/${raw}`;
+}
+
 export default function LandingPage() {
 
     const [scrollY, setScrollY] = useState(0);
@@ -98,9 +106,7 @@ export default function LandingPage() {
                     <div className={`landing-product-card left ${showProducts ? 'animate' : ''}`}>
                         {topProducts[0] ? (() => {
                             const imgPath = topProducts[0].images?.[0]?.image;
-                            const imgUrl = imgPath
-                                ? (imgPath.startsWith('http') ? imgPath : `${API_URL}${imgPath}`)
-                                : '/no-image.png';
+                            const imgUrl = toImageUrl(imgPath);
                             return (
                                 <>
                                     <img src={imgUrl} alt={topProducts[0].name} style={{ width: '100%', borderRadius: '8px', marginBottom: '0.8rem' }} />
@@ -120,9 +126,7 @@ export default function LandingPage() {
                     <div className={`landing-product-card center ${showProducts ? 'animate' : ''}`}>
                         {topProducts[1] ? (() => {
                             const imgPath = topProducts[1].images?.[0]?.image;
-                            const imgUrl = imgPath
-                                ? (imgPath.startsWith('http') ? imgPath : `${API_URL}${imgPath}`)
-                                : '/no-image.png';
+                            const imgUrl = toImageUrl(imgPath);
                             return (
                                 <>
                                     <img src={imgUrl} alt={topProducts[1].name} style={{ width: '100%', borderRadius: '8px', marginBottom: '0.8rem' }} />
@@ -142,9 +146,7 @@ export default function LandingPage() {
                     <div className={`landing-product-card right ${showProducts ? 'animate' : ''}`}>
                         {topProducts[2] ? (() => {
                             const imgPath = topProducts[2].images?.[0]?.image;
-                            const imgUrl = imgPath
-                                ? (imgPath.startsWith('http') ? imgPath : `${API_URL}${imgPath}`)
-                                : '/no-image.png';
+                            const imgUrl = toImageUrl(imgPath);
                             return (
                                 <>
                                     <img src={imgUrl} alt={topProducts[2].name} style={{ width: '100%', borderRadius: '8px', marginBottom: '0.8rem' }} />

@@ -95,7 +95,7 @@ def create_product(request):
     images = request.FILES.getlist("images")
 
     # Create product (without images)
-    serializer = ProductSerializer(data=data)
+    serializer = ProductSerializer(data=data, context={"request": request})
     if serializer.is_valid():
         product = serializer.save()
 
@@ -104,7 +104,7 @@ def create_product(request):
             ProductImage.objects.create(product=product, image=img)
 
         # Build final response
-        response = ProductSerializer(product).data
+        response = ProductSerializer(product, context={"request": request}).data
         response["final_price"] = float(product.price) - float(product.discount or 0)
         response["tags"] = product.tags.split(",") if product.tags else []
 
@@ -145,7 +145,7 @@ def product_list(request):
     # Order by popularity first (relevance), then newest
     products = products.order_by('-popularity', '-id')
 
-    serializer = ProductSerializer(products, many=True)
+    serializer = ProductSerializer(products, many=True, context={"request": request})
 
     response = serializer.data
     for obj, item in zip(products, response):
@@ -169,7 +169,7 @@ def product_detail(request, pk):
     except Product.DoesNotExist:
         return Response({"error": "Product not found"}, status=404)
 
-    serializer = ProductSerializer(product)
+    serializer = ProductSerializer(product, context={"request": request})
     data = serializer.data
 
     data["final_price"] = float(product.price) - float(product.discount or 0)
@@ -197,7 +197,7 @@ def update_product(request, pk):
     if "tags" in data and isinstance(data.get("tags"), list):
         data["tags"] = ",".join(data.get("tags"))
 
-    serializer = ProductSerializer(product, data=data, partial=True)
+    serializer = ProductSerializer(product, data=data, partial=True, context={"request": request})
     if serializer.is_valid():
         updated_product = serializer.save()
 
@@ -211,7 +211,6 @@ def update_product(request, pk):
         response["final_price"] = float(updated_product.price) - float(updated_product.discount or 0)
         response["tags"] = updated_product.tags.split(",") if updated_product.tags else []
         response["low_stock"] = updated_product.quantity < 5
-        response["images"] = [i.image.url for i in updated_product.images.all()]
 
         return Response(response)
 

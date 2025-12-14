@@ -3,6 +3,15 @@ from .models import *
 
 
 class ProductImageSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
+    def get_image(self, obj):
+        if not obj.image:
+            return None
+        request = self.context.get('request')
+        url = obj.image.url
+        return request.build_absolute_uri(url) if request else url
+
     class Meta:
         model = ProductImage
         fields = ['id', 'image']

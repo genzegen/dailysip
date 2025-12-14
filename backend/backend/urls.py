@@ -3,6 +3,7 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+import os
 
 urlpatterns = [
     # Rename Django admin to /django-admin/ instead of /admin/
@@ -19,5 +20,5 @@ urlpatterns = [
 ]
 
 # Serve media files in development
-if settings.DEBUG:
+if settings.DEBUG or os.environ.get('SERVE_MEDIA', 'False') == 'True':
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#1f2937"/>
+    </linearGradient>
+    <style>
+      .title { fill: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 72px; font-weight: 700; }
+      .tag { fill: #d1d5db; font-family: Arial, Helvetica, sans-serif; font-size: 36px; }
+      .badge { fill: #10b981; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#g)"/>
+  <circle cx="160" cy="160" r="64" class="badge"/>
+  <text x="260" y="190" class="title">dailySips</text>
+  <text x="260" y="250" class="tag">Coffee &amp; Tea Store</text>
+  <text x="80" y="520" class="tag">Premium blends. Minimum effort.</text>
+</svg>

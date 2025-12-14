@@ -3,6 +3,14 @@ import SingleProduct from './SingleProduct'; // optional, if you only need produ
 
 const API_URL = import.meta.env.VITE_API_URL || '';
 
+function toImageUrl(raw) {
+  if (!raw) return "/no-image.svg";
+  if (typeof raw !== "string") return "/no-image.svg";
+  if (raw.startsWith("http://") || raw.startsWith("https://")) return raw;
+  if (raw.startsWith("/")) return `${API_URL}${raw}`;
+  return `${API_URL}/${raw}`;
+}
+
 export default function Products({ productslist, onProductClick }) {
   return (
     <div className="product-grid">
@@ -10,8 +18,8 @@ export default function Products({ productslist, onProductClick }) {
         productslist.map((product) => {
           const firstImage =
             product.images && product.images.length > 0
-              ? `${API_URL}${product.images[0].image}`
-              : "/no-image.png";
+              ? toImageUrl(product.images[0].image)
+              : "/no-image.svg";
 
           return (
             <div
