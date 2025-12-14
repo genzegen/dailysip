@@ -5,6 +5,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 import os
 
+def _env_truthy(name: str, default: str = 'False') -> bool:
+    value = os.environ.get(name, default)
+    return str(value).strip().lower() in {'1', 'true', 'yes', 'on'}
+
 urlpatterns = [
     # Rename Django admin to /django-admin/ instead of /admin/
     path('django-admin/', admin.site.urls),
@@ -20,5 +24,5 @@ urlpatterns = [
 ]
 
 # Serve media files in development
-if settings.DEBUG or os.environ.get('SERVE_MEDIA', 'False') == 'True':
+if settings.DEBUG or _env_truthy('SERVE_MEDIA', 'False'):
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
