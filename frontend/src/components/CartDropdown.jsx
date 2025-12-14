@@ -128,7 +128,7 @@ export default function CartDropdown({ isOpen, onClose }) {
     const totalAmount = Math.round(subtotalNumber);
     const totalAmountStr = String(totalAmount);
 
-    const esewaUrl = "https://rc-epay.esewa.com.np/api/epay/main/v2/form";
+    const esewaUrl = "https://rc-epay.esewa.com.np/api/epay/main/v2/form/";
     const productCode = "EPAYTEST";
     const transactionUuid = `DSIP-${Date.now()}`;
 
