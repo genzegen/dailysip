@@ -20,8 +20,13 @@ function AnalyticsRouter() {
     const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-0D31ZC0M9B';
     if (!measurementId || !window.gtag) return;
 
-    window.gtag('config', measurementId, {
+    const debugMode = new URLSearchParams(window.location.search).has('ga_debug');
+
+    window.gtag('event', 'page_view', {
       page_path: location.pathname + location.search,
+      page_location: window.location.href,
+      page_title: document.title,
+      ...(debugMode ? { debug_mode: true } : {}),
     });
   }, [location.pathname, location.search]);
 
