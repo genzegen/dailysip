@@ -5,9 +5,10 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from rest_framework.authentication import SessionAuthentication
 
 from .serializers import *
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
+from django.conf import settings
 
 class CsrfExemptSessionAuthentication(SessionAuthentication):
     def enforce_csrf(self, request):
@@ -124,3 +125,15 @@ class ChangePasswordView(APIView):
         user.save()
 
         return Response({"detail": "Password updated successfully."}, status=status.HTTP_200_OK)
+
+class LogoutView(APIView):
+    authentication_classes = [CsrfExemptSessionAuthentication]
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        logout(request)
+        response = Response({"message": "Logout successful"}, status=status.HTTP_200_OK)
+
+        response.delete_cookie(getattr(settings, 'SESSION_COOKIE_NAME', 'sessionid'))
+        response.delete_cookie(getattr(settings, 'CSRF_COOKIE_NAME', 'csrftoken'))
+        return response
