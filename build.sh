@@ -25,6 +25,13 @@ echo "Running Migrations..."
 echo "======================================"
 python manage.py migrate
 
+if [ "${BOOTSTRAP_DEMO:-False}" = "True" ]; then
+  echo "======================================"
+  echo "Bootstrapping Demo Data..."
+  echo "======================================"
+  python manage.py bootstrap_demo --admin --fixtures --images
+fi
+
 echo "======================================"
 echo "Build Complete!"
 echo "======================================"
