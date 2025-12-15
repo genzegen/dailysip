@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework import status
 from rest_framework.authentication import SessionAuthentication
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models.deletion import ProtectedError
 
 from django.db.models import Q, Sum, Value
 from django.db.models.functions import Coalesce
@@ -230,8 +231,15 @@ def delete_product(request, pk):
     except Product.DoesNotExist:
         return Response({"error": "Product not found"}, status=404)
 
-    product.delete()
-    return Response({"message": "Product deleted"}, status=204)
+    try:
+        product.delete()
+    except ProtectedError:
+        return Response(
+            {"detail": "Cannot delete this product because it is referenced by existing orders."},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+    return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET'])
 @authentication_classes([CsrfExemptSessionAuthentication])

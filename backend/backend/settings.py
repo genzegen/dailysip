@@ -57,7 +57,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ALL_ORIGINS = False
+def _parse_samesite(value, default='Lax'):
+    if value is None:
+        value = default
+    value = str(value).strip()
+    if value.lower() == 'none':
+        return None
+    return value
+
+CORS_ALLOW_ALL_ORIGINS = os.environ.get('CORS_ALLOW_ALL_ORIGINS', 'False') == 'True'
 
 CORS_ALLOWED_ORIGINS = os.environ.get(
     'CORS_ALLOWED_ORIGINS',
@@ -168,12 +176,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Session and Cookie settings for single domain deployment
 SESSION_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SAMESITE = _parse_samesite(os.environ.get('SESSION_COOKIE_SAMESITE', None), default='Lax')
 SESSION_COOKIE_SECURE = not DEBUG  # True only in production with HTTPS
 SESSION_COOKIE_NAME = 'sessionid'
 
 CSRF_COOKIE_HTTPONLY = False  # Must be False for JS to read it
-CSRF_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_SAMESITE = _parse_samesite(os.environ.get('CSRF_COOKIE_SAMESITE', None), default='Lax')
 CSRF_COOKIE_SECURE = not DEBUG  # True only in production with HTTPS
 CSRF_COOKIE_NAME = 'csrftoken'
 

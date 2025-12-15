@@ -32,11 +32,16 @@ export default function CartDropdown({ isOpen, onClose }) {
         setCartItems(data.items || []);
         setDeliveryLocation(data.delivery_location || "");
       } else {
-        console.log("Failed to fetch cart, maybe not logged in");
+        if (res.status === 401 || res.status === 403) {
+          setCartItems([]);
+          setDeliveryLocation("");
+        }
       }
       setLoading(false);
     } catch (err) {
       console.error(err);
+      setCartItems([]);
+      setDeliveryLocation("");
       setLoading(false);
     }
   };

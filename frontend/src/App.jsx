@@ -17,7 +17,7 @@ function AnalyticsRouter() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+    const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-0D31ZC0M9B';
     if (!measurementId || !window.gtag) return;
 
     window.gtag('config', measurementId, {

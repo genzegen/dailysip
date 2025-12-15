@@ -177,7 +177,15 @@ export default function AdminProducts() {
         alert("Product deleted successfully!");
         fetchProducts();
       } else {
-        alert("Failed to delete product");
+        let msg = "Failed to delete product";
+        try {
+          const data = await response.json();
+          msg = data.detail || data.error || JSON.stringify(data);
+        } catch (_) {
+          const text = await response.text();
+          if (text) msg = text;
+        }
+        alert(msg);
       }
     } catch (error) {
       console.error("Error deleting product:", error);

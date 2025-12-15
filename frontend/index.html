@@ -75,7 +75,9 @@
     <script>
       (function () {
         var measurementId = "%VITE_GA_MEASUREMENT_ID%";
-        if (!measurementId || measurementId.indexOf('%VITE_') !== -1) return;
+        if (!measurementId || measurementId.indexOf('%VITE_') !== -1) {
+          measurementId = "G-0D31ZC0M9B";
+        }
 
         var s = document.createElement('script');
         s.async = true;
