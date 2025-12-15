@@ -132,19 +132,28 @@ li {
 
 @media (max-width: 768px) {
     .header-container {
-        height: auto;
+        height: 10vh;
         min-height: 64px;
-        padding: 0.75rem 1rem;
-        flex-wrap: wrap;
-        row-gap: 0.75rem;
+        padding: 0 1rem;
+        flex-wrap: nowrap;
     }
     .left ul, .right ul {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 1rem;
         font-size: 1rem;
     }
+    .left ul {
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .left ul::-webkit-scrollbar {
+        display: none;
+    }
     .search-bar {
-        width: 150px;
+        width: 120px;
         font-size: 1rem;
     }
     .logout-popup {

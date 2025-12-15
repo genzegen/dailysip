@@ -1,4 +1,4 @@
-li {
+.sidebar-container li {
     list-style: none;
     text-align: left;
     font-size: 1.1rem;
@@ -8,7 +8,7 @@ li {
     margin: 30px 0;
 }
 
-li i {
+.sidebar-container li i {
     margin-right: 1.2rem;
 }
 
@@ -19,14 +19,14 @@ li i {
     transition: 0.2s;
 }
 
-li:active {
+.sidebar-container li:active {
     color: rgb(208, 142, 142);
 }
-li.active {
+.sidebar-container li.active {
     color: rgb(234, 142, 142);
 }
 
-ul {
+.sidebar-container ul {
     width: 100%;
     padding: 0 15px;
     margin: 0;
