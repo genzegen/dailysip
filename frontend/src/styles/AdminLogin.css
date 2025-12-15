@@ -67,3 +67,20 @@
   color: red;
   font-size: 0.85rem;
 }
+
+ @media (max-width: 768px) {
+   .admin-login-container {
+     width: min(92vw, 360px);
+     height: auto;
+     padding: 1.25rem;
+     box-sizing: border-box;
+   }
+   .admin-login-container form {
+     width: 100%;
+     margin: 0;
+   }
+   .admin-login-container input {
+     width: 100%;
+     box-sizing: border-box;
+   }
+ }

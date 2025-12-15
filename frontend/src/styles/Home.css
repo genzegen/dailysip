@@ -128,3 +128,39 @@ h1 {
     cursor: pointer;
 }
 
+ @media (max-width: 1024px) {
+     .filter-section {
+         width: 22%;
+         padding: 0.5rem 1rem;
+     }
+     .product-section {
+         width: 78%;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .home-container {
+         height: auto;
+         min-height: calc(100vh - 64px);
+         margin-top: 64px;
+         overflow-y: auto;
+         overflow-x: hidden;
+         flex-direction: column;
+     }
+     .filter-section {
+         width: 100%;
+         box-sizing: border-box;
+     }
+     .product-section {
+         width: 100%;
+         height: auto;
+         margin-bottom: 0;
+         overflow: visible;
+     }
+     .sort-section {
+         margin: 1rem;
+         align-items: flex-start;
+         text-align: left;
+     }
+ }
+

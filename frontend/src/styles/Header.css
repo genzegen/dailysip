@@ -118,4 +118,37 @@ li {
     color: #2b2b2b;
 }
 
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 0 2rem;
+    }
+    .left ul, .right ul {
+        gap: 1.5rem;
+    }
+    .right ul {
+        gap: 2rem;
+    }
+}
 
+@media (max-width: 768px) {
+    .header-container {
+        height: auto;
+        min-height: 64px;
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        row-gap: 0.75rem;
+    }
+    .left ul, .right ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 1rem;
+    }
+    .search-bar {
+        width: 150px;
+        font-size: 1rem;
+    }
+    .logout-popup {
+        width: min(92vw, 270px);
+        right: 0;
+    }
+}

@@ -120,4 +120,51 @@ h1 {
     transform: translateY(0) translateX(0);
 }
 
+ @media (max-width: 1024px) {
+     .latest-products {
+         width: 92vw;
+         gap: 1.25rem;
+     }
+     .landing-product-card {
+         width: 28vw;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .container {
+         scroll-snap-type: none;
+     }
+     .hero-intro, .latest-arrivals {
+         height: auto;
+         padding: 1.25rem 0;
+     }
+     .hero-image {
+         width: 92vw;
+         height: auto;
+         max-height: 50vh;
+         object-fit: cover;
+     }
+     .shop-now-button,
+     .shop-now-button:hover,
+     .shop-now-button:active {
+         width: auto;
+         min-width: 180px;
+         max-width: 92vw;
+     }
+     .latest-arrivals {
+         margin-top: 2rem;
+     }
+     .latest-products {
+         width: 92vw;
+         height: auto;
+         flex-direction: column;
+     }
+     .landing-product-card {
+         width: 92vw;
+         max-width: 420px;
+         height: auto;
+         padding: 1rem;
+     }
+ }
+
 

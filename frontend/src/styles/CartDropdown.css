@@ -194,3 +194,12 @@
   font-size: 0.9rem;
   color: #666;
 }
+
+ @media (max-width: 768px) {
+   .cart-dropdown {
+     width: min(92vw, 420px);
+     right: 4vw;
+     top: 64px;
+     margin-right: 0;
+   }
+ }

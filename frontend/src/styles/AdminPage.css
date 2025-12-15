@@ -38,3 +38,29 @@
     overflow-y: auto;
     background-color: rgb(243, 243, 243);
 }
+
+@media (max-width: 768px) {
+    .admin-main {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+    .admin-sidebar {
+        width: 100%;
+        height: auto;
+    }
+    .admin-content {
+        width: 100%;
+        height: auto;
+    }
+    .admin-content-header {
+        height: auto;
+        padding: 12px;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: 1.1rem;
+    }
+    .admin-content-renders {
+        height: auto;
+    }
+}

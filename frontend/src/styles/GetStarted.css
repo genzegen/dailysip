@@ -50,6 +50,23 @@ html, body {
     margin-top: 5vh;
 }
 
+ @media (max-width: 768px) {
+     .get-started {
+         padding: 1rem;
+         box-sizing: border-box;
+     }
+     .login-register {
+         width: min(92vw, 420px);
+         height: auto;
+         min-height: 320px;
+         padding: 1.25rem;
+         box-sizing: border-box;
+     }
+     .login-register h1 {
+         margin-top: 1rem;
+     }
+ }
+
 @keyframes fadeUp {
     from {
         opacity: 0.1;

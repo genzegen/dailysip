@@ -106,3 +106,31 @@ button:active {
     box-sizing: border-box;
     object-fit: cover;
 }
+
+@media (max-width: 768px) {
+    .login-register-container {
+        flex-direction: column;
+        width: 92vw;
+        height: auto;
+        gap: 1rem;
+    }
+    .login-register-container form {
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+    .login-register-container button,
+    .login-register-container button:active {
+        width: 100%;
+        max-width: 420px;
+    }
+    .cappu-container {
+        width: 100%;
+        height: auto;
+    }
+    .cappu-img {
+        height: auto;
+        max-height: 45vh;
+        margin-top: 0;
+    }
+}
