@@ -10,97 +10,31 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="robots" content="index,follow" />
-
     <!-- Basic SEO meta -->
     <title>dailySips – Coffee & Tea Store</title>
     <meta name="description" content="dailySips – a minimal coffee and tea store where you can browse products, manage your cart, and place simple online orders." />
     <meta name="keywords" content="dailySips, coffee, tea, cups, online store, ecommerce" />
 
-    <link rel="canonical" href="%VITE_SITE_URL%" />
-
     <!-- Open Graph for social sharing -->
     <meta property="og:title" content="dailySips – Coffee & Tea Store" />
     <meta property="og:description" content="Premium blends, minimum effort. Browse coffee, tea and cups in a simple online experience." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="%VITE_SITE_URL%" />
-    <meta property="og:image" content="%VITE_OG_IMAGE_URL%" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="dailySips – Coffee & Tea Store" />
-    <meta name="twitter:description" content="Premium blends, minimum effort. Browse coffee, tea and cups in a simple online experience." />
-    <meta name="twitter:image" content="%VITE_OG_IMAGE_URL%" />
-
-    <script>
-      (function () {
-        var siteUrl = "%VITE_SITE_URL%";
-        var ogImageUrl = "%VITE_OG_IMAGE_URL%";
-
-        var origin = (typeof window !== 'undefined' && window.location && window.location.origin)
-          ? window.location.origin
-          : '';
-
-        if (!siteUrl || siteUrl.indexOf('%VITE_') !== -1) {
-          siteUrl = origin;
-        }
-        if (!ogImageUrl || ogImageUrl.indexOf('%VITE_') !== -1) {
-          ogImageUrl = origin ? (origin + '/og-image.svg') : '';
-        }
-
-        var canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical && siteUrl) canonical.setAttribute('href', siteUrl);
-
-        var ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl && siteUrl) ogUrl.setAttribute('content', siteUrl);
-
-        var ogImg = document.querySelector('meta[property="og:image"]');
-        if (ogImg && ogImageUrl) ogImg.setAttribute('content', ogImageUrl);
-
-        var twImg = document.querySelector('meta[name="twitter:image"]');
-        if (twImg && ogImageUrl) twImg.setAttribute('content', ogImageUrl);
-
-        var ld = document.querySelector('script[type="application/ld+json"]');
-        if (ld && siteUrl) {
-          try {
-            var obj = JSON.parse(ld.textContent);
-            obj.url = siteUrl;
-            ld.textContent = JSON.stringify(obj);
-          } catch (_) {}
-        }
-      })();
-    </script>
+    <!-- Replace with your real deployed URL when you host the app -->
+    <meta property="og:url" content="https://dailysip.onrender.com" />
+    <!-- Optional: set a real preview image when you have one -->
+    <meta property="og:image" content="https://dailysip.onrender.com/og-image.png" />
 
     <!-- Google Analytics (GA4) -->
+    <meta name="google-site-verification" content="EVxUYd62uGclKR78h1rur-Vl1zENhFHo3zWZ5i60Uwk" />
+
     <!-- Set VITE_GA_MEASUREMENT_ID in your .env file to enable -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_MEASUREMENT_ID%"></script>
     <script>
-      (function () {
-        var measurementId = "%VITE_GA_MEASUREMENT_ID%";
-        if (!measurementId || measurementId.indexOf('%VITE_') !== -1) {
-          measurementId = "G-0D31ZC0M9B";
-        }
-
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
-        document.head.appendChild(s);
-
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){window.dataLayer.push(arguments);}
-        window.gtag = gtag;
-
-        gtag('js', new Date());
-        // Disable automatic page_view; handled manually in React Router
-        gtag('config', measurementId, { send_page_view: false });
-      })();
-    </script>
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "dailySips",
-        "url": "%VITE_SITE_URL%"
-      }
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      // Disable automatic page_view; handled manually in React Router
+      gtag('config', '%VITE_GA_MEASUREMENT_ID%', { send_page_view: false });
     </script>
   </head>
   <body>
